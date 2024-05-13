@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:paddingHorizontal="12dp"
+    tools:context=".authentication.SignupFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/carrot_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="50dp"
+            android:src="@drawable/carrot"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:id="@+id/signup_txt"
+            style="@style/medium_textStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/signup_heading" />
+
+        <TextView
+            android:id="@+id/credentials_txt"
+            style="@style/hint_textStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/credentials_label" />
+
+        <TextView
+            android:id="@+id/username_txt"
+            style="@style/hint_textStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/username_label" />
+
+        <EditText
+            android:id="@+id/username_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="@string/username_hint" />
+
+        <TextView
+            android:id="@+id/email_txt"
+            style="@style/hint_textStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/email_label" />
+
+        <EditText
+            android:id="@+id/email_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="@string/email_hint" />
+
+        <TextView
+            android:id="@+id/password_txt"
+            style="@style/hint_textStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/password_label" />
+
+        <EditText
+            android:id="@+id/password_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="@string/password_hint" />
+
+        <TextView
+            android:id="@+id/number_txt"
+            style="@style/hint_textStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/number_label" />
+
+        <EditText
+            android:id="@+id/number_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="@string/number_hint"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/TNC_label"
+            android:layout_marginTop="10dp"
+            android:padding="8dp"
+            android:fontFamily="@font/gilroy_heading"
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/signupBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/signup_heading"
+            android:textAllCaps="false"
+            style="@style/button_style_app"
+            android:padding="18dp"
+            android:layout_marginHorizontal="10dp"
+            android:background="@drawable/rounded_button_background"
+            android:layout_marginVertical="15dp"
+            />
+
+        <TextView
+            android:id="@+id/already_acc_txt"
+            style="@style/small_heading_textStyle"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:padding="10dp"
+            android:text="@string/already_acc_hint" />
+
+
+    </LinearLayout>
+
+
+</ScrollView>
