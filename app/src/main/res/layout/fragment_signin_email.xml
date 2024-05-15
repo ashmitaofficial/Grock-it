@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background2"
-    android:paddingHorizontal="12dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:clickable="false"
-    tools:context=".authentication.fragment.SignupFragment">
+    tools:context=".authentication.fragment.SigninEmailFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="vertical"
+        android:background="@drawable/background2"
+        android:paddingHorizontal="12dp"
+        >
 
         <ImageView
             android:id="@+id/carrot_logo"
@@ -22,35 +27,21 @@
             android:src="@drawable/carrot"
             android:layout_gravity="center" />
 
+
         <TextView
-            android:id="@+id/signup_txt"
+            android:id="@+id/loging_txt"
             style="@style/medium_textStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/signup_heading" />
+            android:text="@string/login_heading" />
 
         <TextView
-            android:id="@+id/credentials_txt"
+            android:id="@+id/emailPass_txt"
             style="@style/label_textStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@string/credentials_label" />
-
-        <TextView
-            android:id="@+id/username_txt"
-            style="@style/label_textStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@string/username_label" />
-
-        <EditText
-            android:id="@+id/username_field"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="@string/username_hint" />
+            android:text="@string/email_pass_label" />
 
         <TextView
             android:id="@+id/email_txt"
@@ -65,8 +56,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:hint="@string/email_hint"
-            android:inputType="textEmailAddress"/>
+            android:hint="@string/email_hint" />
 
         <TextView
             android:id="@+id/password_txt"
@@ -77,44 +67,29 @@
             android:text="@string/password_label" />
 
         <EditText
+            android:id="@+id/pass_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="@string/password_hint" />
+
+
+        <TextView
             android:id="@+id/forgot_pass_txt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="@string/password_hint"
-            android:inputType="textPassword"/>
-
-        <TextView
-            android:id="@+id/number_txt"
-            style="@style/label_textStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@string/number_label" />
-
-        <EditText
-            android:id="@+id/number_field"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="@string/number_hint"
-            android:inputType="number"
-            />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/TNC_label"
-            android:layout_marginTop="10dp"
+            android:text="@string/forgot_password_label"
+            style="@style/small_heading_textStyle"
+            android:gravity="end"
+            android:layout_margin="5dp"
             android:padding="8dp"
-            android:fontFamily="@font/gilroy_heading"
             />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/signupBtn"
+            android:id="@+id/login_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/signup_heading"
+            android:text="@string/login_btn"
             android:textAllCaps="false"
             style="@style/button_style_app"
             android:padding="18dp"
@@ -131,10 +106,18 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:padding="10dp"
-            android:text="@string/already_acc_hint" />
-
+            android:text="@string/dont_account" />
 
     </LinearLayout>
 
+    <me.ibrahimsn.lib.CirclesLoadingView
+        android:id="@+id/loader"
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:visibility="gone"
+        android:layout_height="match_parent"/>
 
-</ScrollView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

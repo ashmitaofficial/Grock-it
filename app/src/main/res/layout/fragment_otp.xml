@@ -4,18 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".authentication.Signin_Number_Fragment">
+    android:background="@drawable/background2"
+    android:clickable="false"
+    tools:context=".authentication.fragment.OtpFragment">
 
-    <ImageView
-        android:id="@+id/backgroundImage"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:scaleType="fitXY"
-        android:src="@drawable/background"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/backBtn"
@@ -34,7 +26,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:padding="15dp"
-        android:text="Enter your 4-digit code"
+        android:text="@string/enter_4digit_label"
         android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,17 +34,17 @@
 
     <TextView
         android:id="@+id/body_txt"
-        style="@style/hint_textStyle"
+        style="@style/label_textStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:padding="15dp"
-        android:text="Code"
+        android:text="@string/code_txt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/number_txt" />
 
     <EditText
-        android:id="@+id/enter_num_txt"
+        android:id="@+id/otp_field"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="12dp"
@@ -65,28 +57,27 @@
         />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingBtn"
+        android:id="@+id/forwardBtn"
         style="@style/circular_floating_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:padding="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/enter_num_txt"
+        app:layout_constraintEnd_toEndOf="@id/otp_field"
         app:shapeAppearance="@style/circular_floating_style"
         app:tint="@color/white" />
 
     <TextView
         android:id="@+id/resend_txt"
-        style="@style/hint_textStyle"
-        android:layout_width="0dp"
+        style="@style/label_textStyle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="15dp"
         android:text="Resend Code"
         android:textColor="@color/app_color"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@id/floatingBtn"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/forwardBtn"
         app:layout_constraintStart_toStartOf="parent" />
 
 

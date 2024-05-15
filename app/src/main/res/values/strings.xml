@@ -2,6 +2,8 @@
     <string name="app_name">Grocery App</string>
     <string name="welcome_label">Welcome</string>
     <string name="welcome_label2">to our store</string>
+    <string name="get_started_btn">Get Started</string>
+    <string name="welcome_desc">Get your groceries in as fast as one hour</string>
     <string name="location_label">Select Your location</string>
     <string name="signup_heading">Sign up</string>
     <string name="credentials_label">Enter your credentials to continue</string>
@@ -25,10 +27,15 @@
     <string name="dont_account">Dont have an account?<font color="#53B175"> Signin</font> </string>
     <string name="location_btn">Fetch Location</string>
     <string name="submit_btn">Submit</string>
-
-
-
-
+    <string name="email_lbl">or Login with email</string>
+    <string name="area_label">Your area</string>
+    <string name="signin_number">Sign in with mobile</string>
+    <string name="google_btn">Continue with Google</string>
+    <string name="facebook_btn">Continue with Facebook</string>
+    <string name="newUser_label">New user? Create account</string>
+    <string name="enter_num_label">Enter your mobile number</string>
+    <string name="enter_4digit_label">Enter your 4-digit code</string>
+    <string name="code_txt">Code</string>
 
 
 </resources>
