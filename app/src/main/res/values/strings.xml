@@ -24,7 +24,7 @@
     <string name="zone_label">Your Zone</string>
     <string name="zone_hint">Your Zone</string>
     <string name="location_desc">Switch on your location to stay in tune with whats happening in your area</string>
-    <string name="dont_account">Dont have an account?<font color="#53B175"> Signin</font> </string>
+    <string name="dont_account">Dont have an account?<font color="#53B175"> Signup</font> </string>
     <string name="location_btn">Fetch Location</string>
     <string name="submit_btn">Submit</string>
     <string name="email_lbl">or Login with email</string>

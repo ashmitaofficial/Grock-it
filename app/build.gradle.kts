@@ -51,6 +51,6 @@ dependencies {
     implementation("androidx.fragment:fragment-ktx:1.7.0")
     implementation("com.google.android.gms:play-services-location:21.2.0")
     implementation ("com.github.ibrahimsn98:CirclesLoadingView:1.0")
-
+    implementation("com.google.android.gms:play-services-auth:21.1.1")
 
 }

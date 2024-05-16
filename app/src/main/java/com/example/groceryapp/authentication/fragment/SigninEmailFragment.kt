@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.groceryapp.R
@@ -19,6 +20,7 @@ class SigninEmailFragment : Fragment() {
     private lateinit var password: EditText
     private lateinit var login_btn: Button
     public lateinit var loader: CirclesLoadingView
+    private lateinit var accountTxt: TextView
 
 
     override fun onCreateView(
@@ -31,6 +33,7 @@ class SigninEmailFragment : Fragment() {
         password = view.findViewById(R.id.pass_field)
         login_btn = view.findViewById(R.id.login_btn)
         loader=view.findViewById(R.id.loader)
+        accountTxt = view.findViewById(R.id.already_acc_txt)
 
 
         login_btn.setOnClickListener {
@@ -38,6 +41,13 @@ class SigninEmailFragment : Fragment() {
             val userPassword: String = password.text.toString().trim()
             loader.visibility=View.VISIBLE
             authenticationViewmodel.login(requireActivity(), userEmail, userPassword,this)
+        }
+
+        accountTxt.setOnClickListener {
+            fragmentManager?.beginTransaction()
+                ?.add(R.id.container, SignupFragment::class.java, null)
+                ?.addToBackStack(null)
+                ?.commit()
         }
 
         return view.rootView
