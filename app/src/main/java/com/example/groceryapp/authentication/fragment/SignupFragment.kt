@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.groceryapp.R
 import com.example.groceryapp.authentication.viewmodel.AuthenticationViewmodel
+import com.example.groceryapp.utils.Validation.isValidEmail
 
 class SignupFragment : Fragment() {
 
@@ -20,7 +21,9 @@ class SignupFragment : Fragment() {
     private lateinit var username_field: EditText
     private lateinit var email_field: EditText
     private lateinit var password_field: EditText
+    private lateinit var already_acc_txt: TextView
     private lateinit var number_field: EditText
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,10 +36,15 @@ class SignupFragment : Fragment() {
         email_field = view.findViewById(R.id.email_field)
         password_field = view.findViewById(R.id.forgot_pass_txt)
         number_field = view.findViewById(R.id.number_field)
+        already_acc_txt=view.findViewById(R.id.already_acc_txt)
 
 
         signupBtn.setOnClickListener {
             validateData()
+        }
+
+        already_acc_txt.setOnClickListener {
+            fragmentManager?.popBackStack()
         }
         return view.rootView
     }
@@ -49,8 +57,14 @@ class SignupFragment : Fragment() {
         }
         else{
             //setting data to viewmodel
+
             authenticationViewmodel.username = username_field.text.toString().trim()
             authenticationViewmodel.email = email_field.text.toString().trim()
+            val userEmail: String = email_field.text.toString()
+            if (userEmail.isValidEmail() == false) {
+                Toast.makeText(requireContext(),"Invalid email",Toast.LENGTH_SHORT).show()
+                return
+            }
             authenticationViewmodel.password = password_field.text.toString().trim()
             authenticationViewmodel.mobile = number_field.text.toString().trim()
 

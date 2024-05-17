@@ -14,7 +14,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:orientation="vertical"
-        android:paddingHorizontal="12dp"
+        android:paddingHorizontal="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         android:background="@drawable/background2"
         >
@@ -56,46 +56,40 @@
             android:text="@string/location_desc" />
 
         <TextView
-            style="@style/label_textStyle"
+            style="@style/grey_textStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:text="@string/zone_label" />
 
         <EditText
-            android:id="@+id/zone_txt"
+            android:id="@+id/zone_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@drawable/outline"
-            android:padding="10dp"
+            android:paddingStart="1.5dp"
             />
 
         <TextView
-            style="@style/label_textStyle"
+            style="@style/grey_textStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
             android:text="@string/area_label"
 
             />
 
         <EditText
-            android:id="@+id/area_txt"
+            android:id="@+id/area_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@drawable/outline"
-            android:padding="10dp" />
+            android:paddingStart="1.5dp"
+            />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/submit_btn"
             style="@style/button_style_app"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
             android:layout_marginVertical="15dp"
             android:background="@drawable/rounded_button_background"
             android:padding="18dp"

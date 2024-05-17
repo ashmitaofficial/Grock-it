@@ -15,7 +15,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import me.ibrahimsn.lib.CirclesLoadingView
 
 
-class SigninNumberFragment : Fragment() {
+class LoginNumberFragment : Fragment() {
 
     private lateinit var enter_num_txt: EditText
     private lateinit var moveForward_btn: FloatingActionButton
@@ -28,7 +28,7 @@ class SigninNumberFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val view = inflater.inflate(R.layout.fragment_signin__number_, container, false)
+        val view = inflater.inflate(R.layout.fragment_login__number_, container, false)
 
         enter_num_txt = view.findViewById(R.id.otp_field)
         moveForward_btn = view.findViewById(R.id.moveForward_btn)

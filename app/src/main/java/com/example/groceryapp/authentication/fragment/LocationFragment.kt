@@ -45,8 +45,8 @@ class LocationFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_location, container, false)
         submit_btn = view.findViewById(R.id.submit_btn)
-        zone_txt = view.findViewById(R.id.zone_txt)
-        area_txt = view.findViewById(R.id.area_txt)
+        zone_txt = view.findViewById(R.id.zone_field)
+        area_txt = view.findViewById(R.id.area_field)
         backBtn=view.findViewById(R.id.backBtn)
         loader=view.findViewById(R.id.loader)
 

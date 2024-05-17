@@ -6,7 +6,7 @@
     android:background="@drawable/background2"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:clickable="false"
-    tools:context=".authentication.fragment.SigninNumberFragment">
+    tools:context=".authentication.fragment.LoginNumberFragment">
 
     <ImageView
         android:id="@+id/backBtn"
