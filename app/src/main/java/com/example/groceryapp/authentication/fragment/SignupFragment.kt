@@ -1,11 +1,13 @@
 package com.example.groceryapp.authentication.fragment
 
 import android.os.Bundle
+import android.text.InputType
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -21,6 +23,7 @@ class SignupFragment : Fragment() {
     private lateinit var username_field: EditText
     private lateinit var email_field: EditText
     private lateinit var password_field: EditText
+    private lateinit var eye_icon: ImageButton
     private lateinit var already_acc_txt: TextView
     private lateinit var number_field: EditText
 
@@ -36,7 +39,19 @@ class SignupFragment : Fragment() {
         email_field = view.findViewById(R.id.email_field)
         password_field = view.findViewById(R.id.forgot_pass_txt)
         number_field = view.findViewById(R.id.number_field)
-        already_acc_txt=view.findViewById(R.id.already_acc_txt)
+        already_acc_txt = view.findViewById(R.id.already_acc_txt)
+        eye_icon = view.findViewById(R.id.eye_icon)
+
+        eye_icon.setOnClickListener {
+            //visible password
+            if (password_field.inputType == InputType.TYPE_CLASS_TEXT) {
+                password_field.inputType = InputType.TYPE_TEXT_VARIATION_PASSWORD or InputType.TYPE_CLASS_TEXT
+                eye_icon.setImageResource(R.drawable.cut_eye_icon)
+            } else {
+                password_field.inputType = InputType.TYPE_CLASS_TEXT
+                eye_icon.setImageResource(R.drawable.eye_icon)
+            }
+        }
 
 
         signupBtn.setOnClickListener {
@@ -50,19 +65,18 @@ class SignupFragment : Fragment() {
     }
 
 
-    private fun validateData(){
-        if(username_field.text.isNullOrEmpty() || email_field.text.isNullOrEmpty() || password_field.text.isNullOrEmpty() || number_field.text.isNullOrEmpty())
-        {
-            Toast.makeText(requireContext(),"One or more field is empty",Toast.LENGTH_SHORT).show()
-        }
-        else{
+    private fun validateData() {
+        if (username_field.text.isNullOrEmpty() || email_field.text.isNullOrEmpty() || password_field.text.isNullOrEmpty() || number_field.text.isNullOrEmpty()) {
+            Toast.makeText(requireContext(), "One or more field is empty", Toast.LENGTH_SHORT)
+                .show()
+        } else {
             //setting data to viewmodel
 
             authenticationViewmodel.username = username_field.text.toString().trim()
             authenticationViewmodel.email = email_field.text.toString().trim()
             val userEmail: String = email_field.text.toString()
             if (userEmail.isValidEmail() == false) {
-                Toast.makeText(requireContext(),"Invalid email",Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Invalid email", Toast.LENGTH_SHORT).show()
                 return
             }
             authenticationViewmodel.password = password_field.text.toString().trim()

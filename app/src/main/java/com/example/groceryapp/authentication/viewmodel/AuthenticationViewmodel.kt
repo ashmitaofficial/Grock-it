@@ -140,10 +140,68 @@ class AuthenticationViewmodel : ViewModel() {
 
                     }
                 }
+
                 override fun onFailure(call: Call<Response>, t: Throwable) {
                     Toast.makeText(context, "Try again", Toast.LENGTH_SHORT).show()
                     fragment.loader.visibility = View.GONE
                 }
             })
     }
+
+
+    fun loginGoogle(context: Activity, email: String, username: String, fragment: SigninFragment) {
+        RetrofitBuilder.build().create(ApiInterface::class.java).loginGoogle(email, username)
+            .enqueue(object : Callback<Response> {
+                override fun onResponse(
+                    call: Call<Response>,
+                    response: retrofit2.Response<Response>
+                ) {
+                    if (response.body()?.status == 200) {
+                        SharedPreferenceClass.savedLogin(context)
+                        fragment.loader.visibility = View.GONE
+                        val homeIntent = Intent(context, HomeActivity::class.java)
+                        context.startActivity(homeIntent)
+                        context.finish()
+                    } else {
+                        Toast.makeText(context, response.body()?.error?.msg, Toast.LENGTH_SHORT).show()
+                        fragment.loader.visibility = View.GONE
+                    }
+                }
+
+                override fun onFailure(call: Call<Response>, t: Throwable) {
+                    Toast.makeText(context, "Try again", Toast.LENGTH_SHORT).show()
+                    fragment.loader.visibility = View.GONE
+                }
+            })
+
+    }
+
+    fun loginMobile(context: Activity, mobile: String, countryCode: String, fragment: OtpFragment) {
+        RetrofitBuilder.build().create(ApiInterface::class.java)
+            .loginMobile(mobile.substring(3), countryCode)
+            .enqueue(object : Callback<Response> {
+                override fun onResponse(
+                    call: Call<Response>,
+                    response: retrofit2.Response<Response>
+                ) {
+                    if (response.body()?.status == 200) {
+                        SharedPreferenceClass.savedLogin(context)
+                        fragment.loader.visibility = View.GONE
+                        val homeIntent = Intent(context, HomeActivity::class.java)
+                        context.startActivity(homeIntent)
+                        context.finish()
+                    } else {
+                        Toast.makeText(context, response.body()?.error?.msg, Toast.LENGTH_SHORT).show()
+                        fragment.loader.visibility = View.GONE
+                    }
+                }
+
+                override fun onFailure(call: Call<Response>, t: Throwable) {
+                    Toast.makeText(context, "Try again", Toast.LENGTH_SHORT).show()
+                    fragment.loader.visibility = View.GONE
+                }
+            })
+
+    }
+
 }

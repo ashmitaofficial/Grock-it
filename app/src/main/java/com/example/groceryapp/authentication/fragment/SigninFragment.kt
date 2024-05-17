@@ -13,13 +13,10 @@ import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.groceryapp.R
 import com.example.groceryapp.authentication.viewmodel.AuthenticationViewmodel
-import com.example.groceryapp.home.HomeActivity
-import com.example.groceryapp.utils.SharedPreferenceClass
 import com.example.groceryapp.utils.Validation.isValidNumber
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -125,7 +122,6 @@ class SigninFragment : Fragment() {
         startActivityForResult(signInIntent, RC_SIGN_IN)
 
     }
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == -1) {
@@ -133,14 +129,12 @@ class SigninFragment : Fragment() {
             try {
                 task.getResult(ApiException::class.java)
 
-                SharedPreferenceClass.savedLogin(requireContext())
-                val homeIntent = Intent(context, HomeActivity::class.java)
-                requireActivity().startActivity(homeIntent)
-                requireActivity().finish()
+                loader.visibility=View.VISIBLE
+                authenticationViewmodel.loginGoogle(requireActivity(), task.result.email.toString(),task.result.displayName.toString(), this )
+
             } catch (e: ApiException) {
                 Toast.makeText(requireContext(), e.message, Toast.LENGTH_SHORT).show()
             }
-
         }
     }
 
@@ -148,5 +142,4 @@ class SigninFragment : Fragment() {
         super.onStop()
         authenticationViewmodel.liveData.postValue(0)
     }
-
 }

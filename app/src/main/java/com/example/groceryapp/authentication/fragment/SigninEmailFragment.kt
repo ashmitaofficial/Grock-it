@@ -2,12 +2,14 @@ package com.example.groceryapp.authentication.fragment
 
 import android.os.Bundle
 import android.text.Editable
+import android.text.InputType
 import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
@@ -29,6 +31,7 @@ class SigninEmailFragment : Fragment() {
     private lateinit var login_btn: Button
     public lateinit var loader: CirclesLoadingView
     private lateinit var accountTxt: TextView
+    private lateinit var eye_icon: ImageButton
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,12 +44,26 @@ class SigninEmailFragment : Fragment() {
         login_btn = view.findViewById(R.id.login_btn)
         loader = view.findViewById(R.id.loader)
         accountTxt = view.findViewById(R.id.already_acc_txt)
+        eye_icon = view.findViewById(R.id.eye_icon)
+
+        eye_icon.setOnClickListener {
+            eye_icon.setOnClickListener {
+                //visible password
+                if (password.inputType == InputType.TYPE_CLASS_TEXT) {
+                    password.inputType = InputType.TYPE_TEXT_VARIATION_PASSWORD or InputType.TYPE_CLASS_TEXT
+                    eye_icon.setImageResource(R.drawable.cut_eye_icon)
+                } else {
+                    password.inputType = InputType.TYPE_CLASS_TEXT
+                    eye_icon.setImageResource(R.drawable.eye_icon)
+                }
+            }
+        }
 
 
         login_btn.setOnClickListener {
             val userEmail: String = email.text.toString()
             if (userEmail.isValidEmail() == false) {
-                Toast.makeText(requireContext(),"Invalid email",Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Invalid email", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
@@ -64,7 +81,6 @@ class SigninEmailFragment : Fragment() {
 
         return view.rootView
     }
-
 
 
 }

@@ -51,6 +51,8 @@ class OtpFragment : Fragment() {
 
 
         forwardBtn.setOnClickListener {
+
+
             val otp = otp_field.text
             if (otp.isNullOrEmpty()) {
                 Toast.makeText(requireContext(), "Please enter OTP", Toast.LENGTH_SHORT).show()
@@ -58,10 +60,7 @@ class OtpFragment : Fragment() {
 
             }
             if (otp.toString().trim().toInt() == authenticationViewmodel.otp) {
-                SharedPreferenceClass.savedLogin(requireContext())
-                val forwardIntent = Intent(this.requireContext(), HomeActivity::class.java)
-                startActivity(forwardIntent)
-                requireActivity().finish()
+                authenticationViewmodel.loginMobile(requireActivity(),authenticationViewmodel.mobile.toString(),authenticationViewmodel.countryCode.toString(),this)
             } else {
                 Toast.makeText(requireContext(), "Enter valid OTP", Toast.LENGTH_SHORT).show()
             }

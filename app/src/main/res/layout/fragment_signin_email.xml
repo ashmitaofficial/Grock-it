@@ -67,13 +67,34 @@
             android:layout_marginTop="20dp"
             android:text="@string/password_label" />
 
-
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/pass_field"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="1.5dp"
-            />
+            >
+            <EditText
+                android:id="@+id/pass_field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:paddingStart="1.5dp"
+                />
+            <ImageButton
+                android:id="@+id/eye_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/pass_field"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:background="@android:color/transparent"
+                android:src="@drawable/cut_eye_icon"
+                android:padding="10dp"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
         <TextView
             android:id="@+id/forgot_pass_txt"
