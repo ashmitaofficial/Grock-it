@@ -14,7 +14,7 @@ import com.example.groceryapp.dao.ApiInterface
 import com.example.groceryapp.dao.Response
 import com.example.groceryapp.dao.RetrofitBuilder
 import com.example.groceryapp.utils.SharedPreferenceClass
-import com.example.groceryapp.home.HomeActivity
+import com.example.groceryapp.home.activity.HomeActivity
 import retrofit2.Call
 import retrofit2.Callback
 
@@ -34,9 +34,7 @@ class AuthenticationViewmodel : ViewModel() {
 
         RetrofitBuilder.build().create(ApiInterface::class.java).signup(map)
             .enqueue(object : Callback<Response> {
-                override fun onResponse(
-                    call: Call<Response>,
-                    response: retrofit2.Response<Response>
+                override fun onResponse(call: Call<Response>, response: retrofit2.Response<Response>
                 ) {
                     if (response.body()?.status == 200) {
                         Toast.makeText(context, "Logged in Succesfully", Toast.LENGTH_SHORT).show()
@@ -106,8 +104,7 @@ class AuthenticationViewmodel : ViewModel() {
                         liveData.postValue(res.toInt())
 
                     } else {
-                        Toast.makeText(context, response.body()?.error?.msg, Toast.LENGTH_SHORT)
-                            .show()
+                        Toast.makeText(context, response.body()?.error?.msg, Toast.LENGTH_SHORT).show()
                         fragment.loader.visibility = View.GONE
 
                     }

@@ -29,4 +29,7 @@ interface ApiInterface {
         @Query("mobile") mobile:String,
         @Query("countryCode") countryCode: String
     ):Call<Response>
+
+    @GET("home")
+    fun getHomeData():Call<Response>
 }

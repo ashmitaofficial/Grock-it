@@ -1,4 +1,4 @@
-package com.example.groceryapp.home
+package com.example.groceryapp.home.activity
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge

@@ -27,7 +27,7 @@ import com.google.android.gms.tasks.Task
 import me.ibrahimsn.lib.CirclesLoadingView
 
 
-class SigninFragment : Fragment() {
+class  SigninFragment : Fragment() {
 
 
     val authenticationViewmodel: AuthenticationViewmodel by activityViewModels()

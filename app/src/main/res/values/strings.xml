@@ -38,6 +38,12 @@
     <string name="code_txt">Code</string>
     <string name="signin_heading_one">Get your groceries</string>
     <string name="signin_heading_two">with nectar</string>
+    <string name="product_name">Organic Bananas</string>
+    <string name="product_qty">7pcs, Priceg</string>
+    <string name="INR">\u20B9</string>
+    <string name="product_price">120</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

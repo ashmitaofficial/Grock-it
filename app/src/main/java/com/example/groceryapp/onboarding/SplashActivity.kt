@@ -11,7 +11,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.groceryapp.R
 import com.example.groceryapp.utils.SharedPreferenceClass
-import com.example.groceryapp.home.HomeActivity
+import com.example.groceryapp.home.activity.HomeActivity
 
 
 class SplashActivity : AppCompatActivity() {

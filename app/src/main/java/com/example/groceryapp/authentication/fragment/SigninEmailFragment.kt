@@ -58,8 +58,7 @@ class SigninEmailFragment : Fragment() {
                 }
             }
         }
-
-
+        
         login_btn.setOnClickListener {
             val userEmail: String = email.text.toString()
             if (userEmail.isValidEmail() == false) {
