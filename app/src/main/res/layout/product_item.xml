@@ -3,10 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="10dp"
     android:background="@android:color/transparent">
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:cardCornerRadius="15dp"
@@ -60,6 +61,7 @@
                   android:id="@+id/price"
                   style="@style/product_name_label_textStyle"
                   android:layout_width="0dp"
+                  tools:text="\u20B9 120"
                   android:layout_height="wrap_content"
                   android:layout_gravity="center" />
 
@@ -119,5 +121,5 @@
 
 
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 </RelativeLayout>
