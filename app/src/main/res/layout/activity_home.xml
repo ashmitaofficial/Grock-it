@@ -5,57 +5,33 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="@android:color/transparent"
+    android:backgroundTint="@android:color/white"
     android:padding="10dp"
-    tools:context=".home.activity.HomeActivity">
+    android:background="@android:color/white"
+    tools:context=".home.HomeActivity">
 
-    <ImageView
-        android:id="@+id/carrot_logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/carrot" />
-
-    <TextView
-        android:id="@+id/location_txt"
-        style="@style/product_name_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:drawableStart="@drawable/location_icon"
-        android:padding="5dp"
-        android:text="Dhaka, banaras"
-        android:textColor="#4C4F4D"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/carrot_logo"
-        />
-
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/search_bar"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/container"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="@drawable/search_bar_outline"
-        android:backgroundTint="#F2F3F2"
-        app:hintEnabled="false"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="0dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/location_txt" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
+        app:itemIconTint="@drawable/bottom_nav_style"
+        app:itemTextColor="@drawable/bottom_nav_style"
+        style="@style/bottom_nav_style"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="#FAEBEB"
-        app:itemIconTint="#181725"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:labelVisibilityMode="labeled"
-        app:backgroundTint="@android:color/transparent"
+        app:backgroundTint="@android:color/white"
         app:menu="@menu/bottom_nav_menu" />
 
 

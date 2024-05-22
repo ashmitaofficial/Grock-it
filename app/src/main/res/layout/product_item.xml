@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -9,130 +9,115 @@
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="@android:color/darker_gray">
+        app:cardCornerRadius="15dp"
+        app:cardBackgroundColor="#CAC6C6">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="1dp"
+            android:layout_margin="0.4dp"
             android:background="@color/white"
-            android:padding="10dp">
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="15dp">
 
             <ImageView
                 android:id="@+id/product_img"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="15dp"
-                android:src="@drawable/banana"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/banana" />
 
             <TextView
                 android:id="@+id/product_name"
-                style="@style/product_name_label"
+                style="@style/product_name_label_textStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="2dp"
                 android:text="@string/product_name"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/product_img" />
+                android:layout_marginTop="10dp" />
 
 
             <TextView
-                android:id="@+id/product_qty"
-                style="@style/product_label"
+                android:id="@+id/product_desc"
+                style="@style/label_textStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:gravity="center"
-                android:padding="5dp"
+                android:layout_gravity="start"
+                android:textSize="14sp"
                 android:text="@string/product_qty"
-                app:layout_constraintStart_toStartOf="@id/product_name"
-                app:layout_constraintTop_toBottomOf="@id/product_name" />
+                android:textStyle="normal"
+                />
+
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:orientation="horizontal"
+              android:layout_marginTop="25dp"
+              android:layout_height="wrap_content">
+
+              <TextView
+                  android:layout_weight="1"
+                  android:id="@+id/price"
+                  style="@style/product_name_label_textStyle"
+                  android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="center" />
+
+              <ImageButton
+                  android:id="@+id/add_btn"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:backgroundTint="@color/app_color"
+                  android:src="@drawable/plus_icon"
+                  android:visibility="visible"
+                  android:padding="20dp"
+                  android:background="@drawable/rounded_corner_btn"
+                  app:tint="@color/white" />
+
+              <LinearLayout
+                  android:id="@+id/count_container"
+                  android:layout_width="wrap_content"
+                  android:layout_height="40dp"
+                  android:background="@drawable/search_bar_outline"
+                  android:orientation="horizontal"
+                  android:visibility="gone">
+
+                  <ImageButton
+                      android:id="@+id/minusbtn"
+                      android:layout_width="30dp"
+                      android:layout_height="30dp"
+                      android:backgroundTint="@android:color/transparent"
+                      android:src="@drawable/remove_icon_black"
+                      android:textColor="@color/black" />
+
+                  <TextView
+                      android:id="@+id/quantity"
+                      android:layout_width="30dp"
+                      android:layout_height="30dp"
+                      android:background="@drawable/search_bar_outline"
+                      android:backgroundTint="@android:color/transparent"
+                      android:text="5"
+                      android:textAlignment="center"
+                      android:textColor="@color/black"
+                      android:textSize="20dp" />
 
 
-            <TextView
-                android:id="@+id/INR"
-                style="@style/product_name_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:gravity="center"
-                android:padding="5dp"
-                android:text="@string/INR"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@id/product_qty"
-                app:layout_constraintTop_toBottomOf="@id/product_qty" />
-
-            <TextView
-                android:id="@+id/price"
-                style="@style/product_name_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:gravity="center"
-                android:padding="5dp"
-                android:text="@string/product_price"
-                app:layout_constraintStart_toEndOf="@id/INR"
-                app:layout_constraintTop_toBottomOf="@id/product_qty" />
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="70dp"
-                android:layout_marginTop="20dp"
-                android:backgroundTint="@color/app_color"
-                android:src="@drawable/plus_icon"
-                app:layout_constraintStart_toEndOf="@id/price"
-                app:layout_constraintTop_toBottomOf="@id/product_qty"
-                app:tint="@color/white" />
-
-            <LinearLayout
-                android:id="@+id/count_container"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/search_bar_outline"
-                android:orientation="horizontal"
-                android:padding="5dp"
-                android:visibility="invisible"
-                app:layout_constraintStart_toEndOf="@+id/price"
-                app:layout_constraintTop_toBottomOf="@id/product_qty"
-                android:layout_marginTop="28dp"
-                app:layout_constraintBottom_toBottomOf="@id/price"
-                android:layout_marginStart="28dp"
-                >
-
-                <ImageButton
-                    android:id="@+id/minusbtn"
-                    android:layout_width="30dp"
-                    android:layout_height="20dp"
-                    android:backgroundTint="@android:color/transparent"
-                    android:src="@drawable/remove_icon_black"
-                    android:textColor="@color/black" />
-
-                <TextView
-                    android:id="@+id/quantity"
-                    android:layout_width="30dp"
-                    android:layout_height="20dp"
-                    android:backgroundTint="@android:color/transparent"
-                    android:text="5"
-                    android:textAlignment="center"
-                    android:textColor="@color/black" />
-
-                <ImageButton
-                    android:id="@+id/plusbtn"
-                    android:layout_width="30dp"
-                    android:layout_height="20dp"
-                    android:backgroundTint="@android:color/transparent"
-                    android:src="@drawable/add_icon_black"
-                    android:textColor="@color/black" />
-
-            </LinearLayout>
+                  <ImageButton
+                      android:id="@+id/plusbtn"
+                      android:layout_width="30dp"
+                      android:layout_height="30dp"
+                      android:backgroundTint="@android:color/transparent"
+                      android:src="@drawable/add_icon_black"
+                      android:textColor="@color/black" />
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+              </LinearLayout>
+
+
+
+          </LinearLayout>
+
+
+        </LinearLayout>
     </androidx.cardview.widget.CardView>
-</FrameLayout>
+</RelativeLayout>

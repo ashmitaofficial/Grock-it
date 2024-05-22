@@ -6,17 +6,27 @@ import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.groceryapp.authentication.UserModel
+import com.example.groceryapp.authentication.fragment.ForgotPasswordFragment
 import com.example.groceryapp.authentication.fragment.LocationFragment
 import com.example.groceryapp.authentication.fragment.OtpFragment
 import com.example.groceryapp.authentication.fragment.SigninEmailFragment
 import com.example.groceryapp.authentication.fragment.SigninFragment
+import com.example.groceryapp.banner.Banner
+import com.example.groceryapp.base.DynamicItem
 import com.example.groceryapp.dao.ApiInterface
 import com.example.groceryapp.dao.Response
 import com.example.groceryapp.dao.RetrofitBuilder
-import com.example.groceryapp.utils.SharedPreferenceClass
-import com.example.groceryapp.home.activity.HomeActivity
+import com.example.groceryapp.base.utils.SharedPreferenceClass
+import com.example.groceryapp.home.HomeActivity
+import com.google.gson.Gson
+import com.google.gson.internal.LinkedTreeMap
+import com.google.gson.reflect.TypeToken
+import org.json.JSONArray
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
+import java.util.Objects
 
 class AuthenticationViewmodel : ViewModel() {
     var username: String? = null
@@ -34,11 +44,15 @@ class AuthenticationViewmodel : ViewModel() {
 
         RetrofitBuilder.build().create(ApiInterface::class.java).signup(map)
             .enqueue(object : Callback<Response> {
-                override fun onResponse(call: Call<Response>, response: retrofit2.Response<Response>
+                override fun onResponse(
+                    call: Call<Response>, response: retrofit2.Response<Response>
                 ) {
                     if (response.body()?.status == 200) {
                         Toast.makeText(context, "Logged in Succesfully", Toast.LENGTH_SHORT).show()
-                        SharedPreferenceClass.savedLogin(context)
+                          val typeUser = object : TypeToken<UserModel?>() {}.type
+                            val user:UserModel=
+                                Gson().fromJson(JSONObject(response.body()?.data as LinkedTreeMap<*,*>).toString(), typeUser)
+                        SharedPreferenceClass.savedLogin(context, user.email.toString())
                         fragment.loader.visibility = View.GONE
                         val homeIntent = Intent(context, HomeActivity::class.java)
                         context.startActivity(homeIntent)
@@ -68,7 +82,7 @@ class AuthenticationViewmodel : ViewModel() {
                 ) {
                     if (response.body()?.status == 200) {
                         Toast.makeText(context, "Logged in Successfully", Toast.LENGTH_SHORT).show()
-                        SharedPreferenceClass.savedLogin(context)
+                        SharedPreferenceClass.savedLogin(context,email)
                         fragment.loader.visibility = View.GONE
                         val homeIntent = Intent(context, HomeActivity::class.java)
                         context.startActivity(homeIntent)
@@ -104,7 +118,8 @@ class AuthenticationViewmodel : ViewModel() {
                         liveData.postValue(res.toInt())
 
                     } else {
-                        Toast.makeText(context, response.body()?.error?.msg, Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, response.body()?.error?.msg, Toast.LENGTH_SHORT)
+                            .show()
                         fragment.loader.visibility = View.GONE
 
                     }
@@ -154,13 +169,14 @@ class AuthenticationViewmodel : ViewModel() {
                     response: retrofit2.Response<Response>
                 ) {
                     if (response.body()?.status == 200) {
-                        SharedPreferenceClass.savedLogin(context)
+                        SharedPreferenceClass.savedLogin(context,email)
                         fragment.loader.visibility = View.GONE
                         val homeIntent = Intent(context, HomeActivity::class.java)
                         context.startActivity(homeIntent)
                         context.finish()
                     } else {
-                        Toast.makeText(context, response.body()?.error?.msg, Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, response.body()?.error?.msg, Toast.LENGTH_SHORT)
+                            .show()
                         fragment.loader.visibility = View.GONE
                     }
                 }
@@ -182,13 +198,14 @@ class AuthenticationViewmodel : ViewModel() {
                     response: retrofit2.Response<Response>
                 ) {
                     if (response.body()?.status == 200) {
-                        SharedPreferenceClass.savedLogin(context)
+                        SharedPreferenceClass.savedLogin(context,mobile)
                         fragment.loader.visibility = View.GONE
                         val homeIntent = Intent(context, HomeActivity::class.java)
                         context.startActivity(homeIntent)
                         context.finish()
                     } else {
-                        Toast.makeText(context, response.body()?.error?.msg, Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, response.body()?.error?.msg, Toast.LENGTH_SHORT)
+                            .show()
                         fragment.loader.visibility = View.GONE
                     }
                 }
@@ -199,6 +216,36 @@ class AuthenticationViewmodel : ViewModel() {
                 }
             })
 
+    }
+
+    fun forgot(context: Activity, map: HashMap<String, String>?, fragment: ForgotPasswordFragment) {
+
+        RetrofitBuilder.build().create(ApiInterface::class.java).forgot(map)
+            .enqueue(object : Callback<Response> {
+                override fun onResponse(
+                    call: Call<Response>, response: retrofit2.Response<Response>
+                ) {
+                    if (response.body()?.status == 200) {
+                        Toast.makeText(context, "Password reset Succesfully", Toast.LENGTH_SHORT)
+                            .show()
+                        fragment.loader.visibility = View.GONE
+//                        val homeIntent = Intent(context, HomeActivity::class.java)
+//                        context.startActivity(homeIntent)
+//                        context.finish()
+
+                    } else {
+                        fragment.loader.visibility = View.GONE
+                        Toast.makeText(context, response.body()?.error?.msg, Toast.LENGTH_SHORT)
+                            .show()
+                    }
+                }
+
+                override fun onFailure(call: Call<Response>, t: Throwable) {
+                    fragment.loader.visibility = View.GONE
+                    Toast.makeText(context, "Try again", Toast.LENGTH_SHORT).show()
+
+                }
+            })
     }
 
 }

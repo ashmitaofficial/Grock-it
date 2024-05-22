@@ -14,7 +14,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.groceryapp.R
 import com.example.groceryapp.authentication.viewmodel.AuthenticationViewmodel
-import com.example.groceryapp.utils.Validation.isValidEmail
+import com.example.groceryapp.base.utils.Validation.isValidEmail
 
 class SignupFragment : Fragment() {
 
@@ -40,7 +40,7 @@ class SignupFragment : Fragment() {
         password_field = view.findViewById(R.id.forgot_pass_txt)
         number_field = view.findViewById(R.id.number_field)
         already_acc_txt = view.findViewById(R.id.already_acc_txt)
-        eye_icon = view.findViewById(R.id.eye_icon)
+        eye_icon = view.findViewById(R.id.eye_icon_confirm_password)
 
         eye_icon.setOnClickListener {
             //visible password

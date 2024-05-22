@@ -41,9 +41,15 @@
     <string name="product_name">Organic Bananas</string>
     <string name="product_qty">7pcs, Priceg</string>
     <string name="INR">\u20B9</string>
-    <string name="product_price">120</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="product_price">INR 120</string>
+    <string name="offer_label">Exclusive Offer</string>
+    <string name="see_all_label">See all</string>
+    <string name="add_basket_btn">Add to Basket</string>
+    <string name="product_detail_label">Product detail</string>
+    <string name="product_details">Apples are nutritious. Apples may be good for weight loss. apples may be good for your heart. As part of a healtful and varied diet.</string>
+    <string name="reset_pass_label">Reset password</string>
+    <string name="create_pass_label">Confirm password</string>
+    <string name="reset_btn">Reset</string>
 
 
 </resources>

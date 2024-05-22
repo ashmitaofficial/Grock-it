@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/offer_label"
+        style="@style/medium_heading_textStyle"
+        android:textSize="24sp"
+        />
+
+    <TextView
+        android:id="@+id/see_all_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/see_all_label"
+        style="@style/body_textStyle"
+        android:textColor="@color/app_color"
+        android:layout_marginStart="110dp"
+        android:textSize="16sp"
+        android:padding="10dp"
+        />
+
+</LinearLayout>

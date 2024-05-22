@@ -25,7 +25,7 @@
 
         <TextView
             android:id="@+id/signup_txt"
-            style="@style/medium_textStyle"
+            style="@style/label_medium_textStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/signup_heading" />
@@ -95,7 +95,7 @@
                 android:inputType="textPassword"/>
 
             <ImageButton
-                android:id="@+id/eye_icon"
+                android:id="@+id/eye_icon_confirm_password"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toTopOf="parent"

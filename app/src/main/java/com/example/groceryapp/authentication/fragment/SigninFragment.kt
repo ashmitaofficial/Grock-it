@@ -17,7 +17,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.groceryapp.R
 import com.example.groceryapp.authentication.viewmodel.AuthenticationViewmodel
-import com.example.groceryapp.utils.Validation.isValidNumber
+import com.example.groceryapp.base.utils.Validation.isValidNumber
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -65,8 +65,7 @@ class  SigninFragment : Fragment() {
             googleSignIn()
         }
 
-        authenticationViewmodel.liveData.observe(
-            viewLifecycleOwner
+        authenticationViewmodel.liveData.observe(viewLifecycleOwner
         ) {
             if (it > 0) {
                 authenticationViewmodel.otp = it

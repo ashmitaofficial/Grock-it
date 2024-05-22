@@ -31,5 +31,10 @@ interface ApiInterface {
     ):Call<Response>
 
     @GET("home")
-    fun getHomeData():Call<Response>
+    fun getHomeData(
+        @Query("email") email:String
+    ):Call<Response>
+
+    @POST("forgot")
+    fun forgot(@Body map: HashMap<String, String>?): Call<Response>
 }

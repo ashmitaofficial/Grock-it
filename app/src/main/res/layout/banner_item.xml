@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.synnapps.carouselview.CarouselView
+        android:id="@+id/banner_corousel"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        app:fillColor="@color/app_color"
+        app:pageColor="@android:color/darker_gray"
+        app:radius="4dp"
+        app:slideInterval="3000"
+        app:strokeColor="@android:color/darker_gray"
+        app:strokeWidth="0dp"/>
+
+</FrameLayout>

@@ -1,4 +1,4 @@
-package com.example.groceryapp.utils
+package com.example.groceryapp.base.utils
 
 import android.widget.Toast
 import java.util.regex.Matcher
