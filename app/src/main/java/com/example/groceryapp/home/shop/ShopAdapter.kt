@@ -1,7 +1,9 @@
 package com.example.groceryapp.home.shop
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.groceryapp.R
 import com.example.groceryapp.banner.BannerViewHolder
@@ -9,7 +11,6 @@ import com.example.groceryapp.base.BaseViewHolder
 import com.example.groceryapp.base.DynamicItem
 import com.example.groceryapp.category.CategoryAdapter
 import com.example.groceryapp.category.CategoryViewHolder
-import com.example.groceryapp.home.TempViewHolder
 import com.example.groceryapp.bestSelling.BestSellerViewHolder
 import com.example.groceryapp.recommend.RecommendedViewHolder
 import com.example.groceryapp.label.LabelViewHolder
@@ -18,7 +19,7 @@ import com.example.groceryapp.offer.OfferViewHolder
 import com.example.groceryapp.product.ProductAdapter
 import com.example.groceryapp.search.SearchViewHolder
 
-class ShopAdapter(private val list: ArrayList<DynamicItem>) :
+class ShopAdapter(private val list: ArrayList<DynamicItem>, val context: FragmentActivity) :
     RecyclerView.Adapter<BaseViewHolder>() {
     companion object {
         const val TYPE_BANNER = 0
@@ -43,21 +44,21 @@ class ShopAdapter(private val list: ArrayList<DynamicItem>) :
             TYPE_LABEL -> {
                 val view =
                     LayoutInflater.from(parent.context).inflate(R.layout.label, parent, false)
-                return LabelViewHolder(view)
+                return LabelViewHolder(view, context)
             }
 
             TYPE_OFFER -> {
                 val view =
                     LayoutInflater.from(parent.context)
                         .inflate(R.layout.home_offer_item, parent, false)
-                return OfferViewHolder(view)
+                return OfferViewHolder(view,context)
             }
 
             TYPE_BEST_SELLER -> {
                 val view =
                     LayoutInflater.from(parent.context)
                         .inflate(R.layout.home_best_seller_item, parent, false)
-                return BestSellerViewHolder(view)
+                return BestSellerViewHolder(view,context)
             }
 
 
@@ -71,7 +72,7 @@ class ShopAdapter(private val list: ArrayList<DynamicItem>) :
             TYPE_RECOMMEND -> {
                 val view = LayoutInflater.from(parent.context)
                     .inflate(R.layout.home_recommended_item, parent, false)
-                return RecommendedViewHolder(view)
+                return RecommendedViewHolder(view,context)
             }
 
             TYPE_SEARCH -> {
@@ -79,16 +80,18 @@ class ShopAdapter(private val list: ArrayList<DynamicItem>) :
                     LayoutInflater.from(parent.context).inflate(R.layout.search_item, parent, false)
                 return SearchViewHolder(view)
             }
+
             TYPE_LOCATION -> {
                 val view =
-                    LayoutInflater.from(parent.context).inflate(R.layout.location_item, parent, false)
+                    LayoutInflater.from(parent.context)
+                        .inflate(R.layout.location_item, parent, false)
                 return LocationViewHolder(view)
             }
 
         }
 
         val view = LayoutInflater.from(parent.context).inflate(R.layout.banner_item, parent, false)
-        return TempViewHolder(view)
+        return BannerViewHolder(view)
     }
 
     override fun getItemCount(): Int {

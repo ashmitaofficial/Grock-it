@@ -1,4 +1,4 @@
-package com.example.groceryapp.authentication
+package com.example.groceryapp.authentication.model
 
 data class UserModel(
     val uid: Int?,

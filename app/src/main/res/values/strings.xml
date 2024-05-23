@@ -41,7 +41,7 @@
     <string name="product_name">Organic Bananas</string>
     <string name="product_qty">7pcs, Priceg</string>
     <string name="INR">\u20B9</string>
-    <string name="product_price">INR 120</string>
+    <string name="product_price">\u20B9 120</string>
     <string name="offer_label">Exclusive Offer</string>
     <string name="see_all_label">See all</string>
     <string name="add_basket_btn">Add to Basket</string>
@@ -50,6 +50,9 @@
     <string name="reset_pass_label">Reset password</string>
     <string name="create_pass_label">Confirm password</string>
     <string name="reset_btn">Reset</string>
+    <string name="find_products">Find products</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

@@ -26,7 +26,7 @@ class ShopFragment : Fragment() {
         homeViewModel.getHomeData(requireActivity())
 
         homeViewModel.liveData.observe(viewLifecycleOwner) {
-            recyclerView.adapter = ShopAdapter(it)
+            recyclerView.adapter = ShopAdapter(it,requireActivity())
         }
         return view.rootView
     }

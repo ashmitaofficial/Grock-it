@@ -45,7 +45,8 @@ class ForgotPasswordFragment : Fragment() {
 
         eyeIcon_password.setOnClickListener {
             if (password.inputType == InputType.TYPE_CLASS_TEXT) {
-                password.inputType = InputType.TYPE_TEXT_VARIATION_PASSWORD or InputType.TYPE_CLASS_TEXT
+                password.inputType =
+                    InputType.TYPE_TEXT_VARIATION_PASSWORD or InputType.TYPE_CLASS_TEXT
                 eyeIcon_password.setImageResource(R.drawable.cut_eye_icon)
             } else {
                 password.inputType = InputType.TYPE_CLASS_TEXT
@@ -65,13 +66,10 @@ class ForgotPasswordFragment : Fragment() {
         }
 
         resetBtn.setOnClickListener {
-            val map = HashMap<String, String>()
-            map.put("email", email.text.toString())
-            map.put("newPassword", confirm_password.text.toString())
+
 
             validateData()
-            loader.visibility = View.VISIBLE
-            authenticationViewmodel.forgot(requireActivity(), map, this)
+
 
         }
 
@@ -94,13 +92,14 @@ class ForgotPasswordFragment : Fragment() {
             val user_password: String = password.text.toString()
             val user_new_password: String = confirm_password.text.toString()
             if (!user_password.equals(user_new_password)) {
-                Toast.makeText(
-                    requireContext(),
-                    "New password is not matching from old password",
-                    Toast.LENGTH_SHORT
-                ).show()
+                Toast.makeText(requireContext(), "New password is not matching from old password", Toast.LENGTH_SHORT).show()
                 return
             }
+            loader.visibility = View.VISIBLE
+            val map = HashMap<String, String>()
+            map.put("email", email.text.toString())
+            map.put("newPassword", confirm_password.text.toString())
+            authenticationViewmodel.forgot(requireActivity(), map, this)
 
         }
 

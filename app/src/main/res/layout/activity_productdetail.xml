@@ -5,40 +5,25 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/transparent"
+    android:background="@color/white"
     android:clickable="false"
-    android:paddingHorizontal="18dp"
+    android:layout_marginHorizontal="10dp"
     android:scrollbars="none"
     tools:context=".product.ProductdetailActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:orientation="vertical">
 
-        <com.synnapps.carouselview.CarouselView
-            android:id="@+id/product_corousel"
+        <ImageView
+            android:id="@+id/product_img"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-            app:fillColor="#FFFFFFFF"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:pageColor="#00000000"
-            app:radius="6dp"
-            app:slideInterval="3000"
-            app:strokeColor="#FF777777"
-            app:strokeWidth="1dp" />
+            android:layout_height="250dp"/>
 
-        <TextView
-            android:id="@+id/favourite"
-            style="@style/label_medium_textStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:drawableEnd="@drawable/favourite_icon"
-            android:drawableTint="#7C7C7C"
-            android:text="@string/offer_label" />
+        <include
+            android:id="@+id/offer_label_cl"
+            layout="@layout/product_label_layout" />
 
         <TextView
             android:id="@+id/product_desc"
@@ -47,79 +32,40 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="5dp"
-            android:textStyle="normal"
             android:text="@string/product_qty"
+            android:textStyle="normal"
             app:layout_constraintStart_toStartOf="@id/product_name"
             app:layout_constraintTop_toBottomOf="@id/product_name" />
 
         <LinearLayout
             android:id="@+id/count_container"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:orientation="horizontal"
             android:padding="5dp">
 
-            <ImageButton
-                android:id="@+id/minusbtn"
-                android:layout_width="50dp"
-                android:layout_height="30dp"
-                android:backgroundTint="@android:color/transparent"
-                android:src="@drawable/remove_icon_black"
-                android:textColor="@color/black" />
+            <include
+                layout="@layout/product_qty_container_layout" />
+
 
             <TextView
-                android:id="@+id/quantity"
-                android:layout_width="50dp"
-                android:layout_height="30dp"
-                android:background="@drawable/search_bar_outline"
-                android:backgroundTint="@android:color/transparent"
-                android:text="5"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="20dp" />
-
-
-            <ImageButton
-                android:id="@+id/plusbtn"
-                android:layout_width="50dp"
-                android:layout_height="30dp"
-                android:backgroundTint="@android:color/transparent"
-                android:src="@drawable/add_icon_black"
-                android:textColor="@color/black" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
+                android:id="@+id/price"
+                style="@style/product_name_label_textStyle"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="148dp"
-                android:orientation="horizontal">
+                android:layout_gravity="center"
+                android:gravity="end"
+                android:padding="5dp"
+                android:text="@string/product_price" />
 
-                <TextView
-                    android:id="@+id/INR"
-                    style="@style/product_name_label_textStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:padding="5dp"
-                    android:text="@string/INR"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/price"
-                    style="@style/product_name_label_textStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:padding="5dp"
-                    android:text="@string/product_price"
-                    app:layout_constraintStart_toEndOf="@id/INR" />
-            </LinearLayout>
 
         </LinearLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
+            android:layout_marginTop="10dp"
             android:background="#E2E2E2" />
 
         <TextView
@@ -128,11 +74,12 @@
             android:layout_height="wrap_content"
             android:drawableEnd="@drawable/expand_icon"
             android:padding="10dp"
-            android:textColor="#181725"
             android:text="@string/product_detail_label"
+            android:textColor="#181725"
             android:textSize="20sp" />
 
         <TextView
+            android:id="@+id/details"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
@@ -143,92 +90,46 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
+            android:layout_marginTop="10dp"
             android:background="#E2E2E2" />
 
-        <LinearLayout
+
+        <include
+            layout="@layout/product_nutrition_layout" />
+
+        <TextView
+            android:id="@+id/nutrition_details"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:padding="10dp"
+            android:text="20g protein, 2g fats, molecular acid rich in phosphate"
+            android:textColor="#7C7C7C"
+            android:textSize="14sp" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    style="@style/label_textStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:text="Nutrition"
-                    android:textColor="#181725"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/gram"
-                    style="@style/label_grey_textStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="120dp"
-                    android:background="#DCD8D8"
-                    android:gravity="center"
-                    android:padding="5dp"
-                    android:text="100gr" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="60dp"
-                    android:padding="8dp"
-                    android:src="@drawable/right_arrow_icon" />
-            </LinearLayout>
-        </LinearLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
+            android:layout_marginTop="10dp"
             android:background="#E2E2E2" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+        <include
+            layout="@layout/product_review_layout" />
 
-                <TextView
-                    style="@style/label_textStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:text="Review"
-                    android:textColor="#181725"
-                    android:textSize="20sp" />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="15dp"
-                    android:src="@drawable/rating_star" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="125dp"
-                    android:padding="8dp"
-                    android:src="@drawable/right_arrow_icon" />
-            </LinearLayout>
-        </LinearLayout>
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal">-->
+<!--        </LinearLayout>-->
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/AddBasket_btn"
             style="@style/button_style_app"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="15dp"
+            android:layout_marginVertical="35dp"
             android:background="@drawable/rounded_button_background"
             android:padding="18dp"
             android:text="@string/add_basket_btn"
