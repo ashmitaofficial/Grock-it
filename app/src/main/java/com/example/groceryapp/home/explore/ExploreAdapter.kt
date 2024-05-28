@@ -1,7 +1,5 @@
 package com.example.groceryapp.home.explore
 
-import android.app.Activity
-import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,7 +13,6 @@ import com.example.groceryapp.R
 import com.example.groceryapp.base.utils.AppConstants
 import com.example.groceryapp.category.Category
 import com.example.groceryapp.product.ProductListingFragment
-import com.example.groceryapp.product.ProductdetailActivity
 import com.google.android.material.card.MaterialCardView
 import com.squareup.picasso.Picasso
 
@@ -54,7 +51,7 @@ class ExploreAdapter(private val list: ArrayList<Category>,val context:FragmentA
     class MyViewholder(view: View) : RecyclerView.ViewHolder(view) {
         var productImage = view.findViewById<ImageView>(R.id.product_img)
         var productName = view.findViewById<TextView>(R.id.product_name)
-        var cardView = view.findViewById<MaterialCardView>(R.id.cardView)
+        var cardView = view.findViewById<MaterialCardView>(R.id.cardView_category)
 
 
     }

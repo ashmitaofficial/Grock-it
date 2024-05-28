@@ -26,12 +26,14 @@
             android:drawableStart="@drawable/rating_star"
             android:drawablePadding="8dp"
             android:textColor="#181725"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="8dp"
+            android:padding="10dp"
+            android:layout_marginTop="2dp"
             android:src="@drawable/right_arrow_icon" />
 </LinearLayout>
 

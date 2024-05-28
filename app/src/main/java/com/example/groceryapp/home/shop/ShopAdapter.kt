@@ -66,7 +66,7 @@ class ShopAdapter(private val list: ArrayList<DynamicItem>, val context: Fragmen
                 val view =
                     LayoutInflater.from(parent.context)
                         .inflate(R.layout.home_grocery_item, parent, false)
-                return CategoryViewHolder(view)
+                return CategoryViewHolder(view,context)
             }
 
             TYPE_RECOMMEND -> {
@@ -78,7 +78,7 @@ class ShopAdapter(private val list: ArrayList<DynamicItem>, val context: Fragmen
             TYPE_SEARCH -> {
                 val view =
                     LayoutInflater.from(parent.context).inflate(R.layout.search_item, parent, false)
-                return SearchViewHolder(view)
+                return SearchViewHolder(view,context)
             }
 
             TYPE_LOCATION -> {

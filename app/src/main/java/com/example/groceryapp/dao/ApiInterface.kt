@@ -51,4 +51,37 @@ interface ApiInterface {
 
     @GET("category/{id}")
     fun getProductByCategory(@Path("id") id: Int): Call<Response>
+    @GET("product")
+    fun searchItem(
+        @Query("search") search: String
+    ): Call<Response>
+
+    @GET("addWishlist/{wishId}")
+    fun addWishlist(@Path("wishId")wishId:Int): Call<Response>
+
+    @GET("removeWishlist/{id}")
+    fun removeWishlist(@Path("id")id:Int): Call<Response>
+
+    @GET("getWishlist")
+    fun getWishList(): Call<Response>
+
+    @GET("cart")
+    fun getCart():Call<Response>
+    @POST("cart")
+    fun addCart(@Body map: HashMap<String, Any>?): Call<Response>
+
+    @GET("cart/remove/{id}")
+    fun removeCartItem(@Path("id")id:Int): Call<Response>
+
+    @GET("cart/removeItem/{id}")
+    fun removeCartMinus(@Path("id")id:Int): Call<Response>
+
+    @GET("category/search")
+    fun searchCategory(
+        @Query("txt") txt: String
+    ): Call<Response>
+
+    @GET("filters")
+    fun getFilterItems(): Call<Response>
+
 }

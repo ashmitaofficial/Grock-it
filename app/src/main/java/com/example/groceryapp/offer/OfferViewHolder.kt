@@ -1,11 +1,9 @@
 package com.example.groceryapp.offer
 
-import android.content.Context
 import android.view.View
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.groceryapp.R
-import com.example.groceryapp.banner.Banner
 import com.example.groceryapp.base.BaseViewHolder
 import com.example.groceryapp.base.DynamicItem
 import com.example.groceryapp.product.Product

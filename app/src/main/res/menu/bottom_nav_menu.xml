@@ -13,7 +13,7 @@
         android:title="Explore" />
 
     <item
-        android:id="@+id/Cart_txt"
+        android:id="@+id/cart_txt"
         android:icon="@drawable/cart_icon"
         android:iconTint="#181725"
         android:title="Cart" />

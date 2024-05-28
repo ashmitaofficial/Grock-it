@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginTop="25dp"
     android:orientation="horizontal">
 
@@ -10,6 +11,8 @@
             style="@style/label_medium_textStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             android:layout_weight="1"
             android:text="@string/offer_label" />
 
@@ -17,11 +20,26 @@
             android:id="@+id/fav_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:padding="10dp"
             android:background="@android:color/transparent"
             android:src="@drawable/favourite_icon"
             android:tint="@color/small_text_color"
             android:layout_gravity="center"/>
 
-</LinearLayout>
+        <ImageButton
+            android:id="@+id/fav_btn_selected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:src="@drawable/fav_icon_selected"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:padding="10dp"
+            android:layout_gravity="center"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
 
 

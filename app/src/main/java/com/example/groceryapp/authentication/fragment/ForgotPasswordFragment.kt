@@ -66,16 +66,8 @@ class ForgotPasswordFragment : Fragment() {
         }
 
         resetBtn.setOnClickListener {
-
-
             validateData()
-
-
         }
-
-
-
-
         return view.rootView
     }
 

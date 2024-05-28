@@ -31,7 +31,7 @@ class SplashActivity : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed(Runnable {
 
              run {
-                 if (SharedPreferenceClass.isLoggedIn(this@SplashActivity)) {
+                 if (SharedPreferenceClass.isLoggedIn(applicationContext)) {
                      val i = Intent(this@SplashActivity, HomeActivity::class.java)
                      startActivity(i)
                      finish()

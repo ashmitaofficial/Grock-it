@@ -1,22 +1,31 @@
 package com.example.groceryapp.product
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
+import android.widget.ImageView
+import androidx.appcompat.widget.SearchView
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.groceryapp.R
 import com.example.groceryapp.base.utils.AppConstants
-
+import com.example.groceryapp.home.bottomSheet.FilterBottomSheet
 import com.example.groceryapp.home.productList.ProductListViewModel
 
 class ProductListingFragment : Fragment() {
 
     val viewmodel: ProductListViewModel by viewModels()
-    lateinit var recyclerView:RecyclerView
+    lateinit var recyclerView: RecyclerView
+    lateinit var filter_icon: ImageView
+    lateinit var add_btn: ImageButton
+    lateinit var search_bar: SearchView
+    lateinit var bottomSheet: FilterBottomSheet
+    var originalList: List<Product> = ArrayList()
+
 
 
     override fun onCreateView(
@@ -24,23 +33,61 @@ class ProductListingFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val cid= this.arguments?.getInt(AppConstants.CATEGORY_ID,-1)
+        val cid = this.arguments?.getInt(AppConstants.CATEGORY_ID, -1)
+        val searchItem=this.arguments?.getString(AppConstants.SEARCHED_ITEM,"")
 
-        val view= inflater.inflate(R.layout.fragment_product_list, container, false)
-        recyclerView=view.findViewById(R.id.product_list_recycler_view)
-        recyclerView.layoutManager = GridLayoutManager(requireContext(),2,RecyclerView.VERTICAL,false)
+        val view = inflater.inflate(R.layout.fragment_product_list, container, false)
+        filter_icon = view.findViewById(R.id.filter_icon)
+        recyclerView = view.findViewById(R.id.product_list_recycler_view)
+        search_bar = view.findViewById(R.id.search_bar)
+        recyclerView.layoutManager = GridLayoutManager(requireContext(), 2, RecyclerView.VERTICAL, false)
 
-
-        viewmodel.liveData.observe(viewLifecycleOwner){
-            recyclerView.adapter= ProductListAdapter(it)
+        filter_icon.setOnClickListener {
+            viewmodel.getFilterItems(requireContext())
+            val bottomSheet = FilterBottomSheet(selectedFilterItem = {
+                filterList(it)
+            })
+            bottomSheet.show(requireActivity().supportFragmentManager, "ModalBottomSheet")
         }
-        if(cid==null){
-        viewmodel.getProductListData(requireContext(),this)}
-        else{
-            viewmodel.getProductByCategory(requireContext(),cid)
+
+
+        search_bar.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                filterList(query)
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String): Boolean {
+                if (newText.isEmpty()) {
+                    viewmodel.getProductListData(requireContext(), this@ProductListingFragment)
+                }
+                return false
+            }
+        })
+
+        viewmodel.liveData.observe(viewLifecycleOwner) {
+            recyclerView.adapter = ProductAdapter(it, requireActivity())
+        }
+
+
+
+        if (cid == null) {
+            viewmodel.getProductListData(requireContext(), this)
+        }else if(!searchItem.isNullOrEmpty()){
+            viewmodel.searchItem(requireContext(),searchItem)
+        }
+        else {
+            viewmodel.getProductByCategory(requireContext(), cid)
         }
 
         return view.rootView
     }
 
+    fun filterList(text: String) {
+        viewmodel.searchItem(requireContext(), text)
+    }
+
+
 }
+
+

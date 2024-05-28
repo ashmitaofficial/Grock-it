@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentActivity
 import com.example.groceryapp.R
 import com.example.groceryapp.base.BaseViewHolder
 import com.example.groceryapp.base.DynamicItem
+import com.example.groceryapp.home.HomeActivity
 import com.example.groceryapp.product.ProductListingFragment
 
 class LabelViewHolder(itemView: View, val context: FragmentActivity) : BaseViewHolder(itemView) {
@@ -18,13 +19,16 @@ class LabelViewHolder(itemView: View, val context: FragmentActivity) : BaseViewH
 
         val seeAll_label = itemView.findViewById<TextView>(R.id.see_all_label)
 
+
         seeAll_label.setOnClickListener {
-            context.supportFragmentManager.beginTransaction()
-                .add(R.id.container, ProductListingFragment::class.java, null)
-                .addToBackStack(null)
-                .commit()
-
-
+            if (!data.lowercase().contains("categor")) {
+                context.supportFragmentManager.beginTransaction()
+                    .add(R.id.container, ProductListingFragment::class.java, null)
+                    .addToBackStack(null)
+                    .commit()
+            }else{
+                (context as HomeActivity).bottomNavigationView.selectedItemId = R.id.explore_txt
+            }
         }
 
     }

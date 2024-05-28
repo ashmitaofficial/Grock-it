@@ -1,37 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal">
 
 
-        <TextView
-            style="@style/label_textStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:padding="10dp"
-            android:text="Nutrition"
-            android:textColor="#181725"
-            android:textSize="20sp" />
+    <TextView
+        android:id="@+id/text"
+        style="@style/label_textStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:padding="10dp"
+        android:text="Nutrition"
+        android:textColor="#181725"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/gram"
-            style="@style/label_grey_textStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#DAD5D5"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="100gr"
-            />
+    <TextView
+        android:id="@+id/gram"
+        style="@style/label_grey_textStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:background="#DAD5D5"
+        android:gravity="center"
+        android:layout_marginTop="8dp"
+        android:padding="5dp"
+        android:text="100gr"
+        app:layout_constraintStart_toEndOf="@+id/text"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:src="@drawable/right_arrow_icon" />
-    </LinearLayout>
+    <ImageButton
+        android:id="@+id/nutrition_expand_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:padding="8dp"
+        android:layout_marginTop="2dp"
+        android:src="@drawable/right_arrow_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/nutrition_less_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:padding="8dp"
+        android:layout_marginTop="2dp"
+        android:src="@drawable/expand_icon"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
 
 
 

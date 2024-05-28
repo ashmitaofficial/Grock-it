@@ -1,6 +1,5 @@
 package com.example.groceryapp.recommend
 
-import android.content.Context
 import android.view.View
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView

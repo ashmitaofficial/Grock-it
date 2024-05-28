@@ -9,5 +9,8 @@ data class Product(
     val title: String?,
     val detail: String?,
     val nutrition: String?,
-    val review: Int?
+    val review: Int?,
+    val favorite: Boolean?,
+    val quantity: Int?,
+    val total: Double?
 )

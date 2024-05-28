@@ -169,7 +169,6 @@ class AuthenticationViewmodel : ViewModel() {
                 ) {
                     if (response.body()?.status == 200) {
                         SharedPreferenceClass.savedLogin(context, email)
-                        fragment.loader.visibility = View.GONE
                         val homeIntent = Intent(context, HomeActivity::class.java)
                         context.startActivity(homeIntent)
                         context.finish()
