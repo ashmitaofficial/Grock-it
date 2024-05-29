@@ -44,25 +44,25 @@ class HomeActivity : AppCompatActivity() {
             override fun onNavigationItemSelected(p0: MenuItem): Boolean {
                 if (p0.itemId == R.id.shop_txt) {
                     supportFragmentManager.beginTransaction()
-                        .add(R.id.container, ShopFragment::class.java, null)
+                        .replace(R.id.container, ShopFragment::class.java, null)
                         .commit()
                     return true
                 }
                else if (p0.itemId == R.id.explore_txt) {
                     supportFragmentManager.beginTransaction()
-                        .add(R.id.container, ExploreFragment::class.java, null)
+                        .replace(R.id.container, ExploreFragment::class.java, null)
                         .commit()
                     return true
                 }
                 else if(p0.itemId == R.id.favorite_txt){
                     supportFragmentManager.beginTransaction()
-                        .add(R.id.container, FavoriteFragment::class.java, null)
+                        .replace(R.id.container, FavoriteFragment::class.java, null)
                         .commit()
                     return true
                 }
                 else if(p0.itemId == R.id.cart_txt) {
                     supportFragmentManager.beginTransaction()
-                        .add(R.id.container, CartFragment::class.java, null)
+                        .replace(R.id.container, CartFragment::class.java, null)
                         .commit()
                     return true
                 }

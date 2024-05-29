@@ -49,15 +49,15 @@ class ProductListingFragment : Fragment() {
         recyclerView.layoutManager = GridLayoutManager(requireContext(), 2, RecyclerView.VERTICAL, false)
 
         filter_icon.setOnClickListener {
-//            recyclerView.visibility=View.GONE
-
-//            viewmodel.getFilterItems(requireContext())
             val bottomSheet = FilterBottomSheet(selectedFilterItem = {
-                filterList(it)
+                if(it.isNotEmpty()){
+                filterList(it)}
+                else{
+                    viewmodel.getProductByCategory(requireContext(),id)
+                }
             })
             bottomSheet.show(requireActivity().supportFragmentManager, "ModalBottomSheet")
         }
-
 
         search_bar.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
@@ -96,8 +96,6 @@ class ProductListingFragment : Fragment() {
     fun filterList(text: String) {
         viewmodel.searchItem(requireContext(), text)
     }
-
-
 }
 
 

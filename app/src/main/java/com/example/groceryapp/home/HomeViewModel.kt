@@ -29,10 +29,10 @@ import retrofit2.Callback
 class HomeViewModel : ViewModel() {
 
     var liveData: MutableLiveData<ArrayList<DynamicItem>> = MutableLiveData<ArrayList<DynamicItem>>()
-    var liveDataWishlist: MutableLiveData<ArrayList<Product>> = MutableLiveData<ArrayList<Product>>()
+//    var liveDataWishlist: MutableLiveData<ArrayList<Product>> = MutableLiveData<ArrayList<Product>>()
     var shopList = ArrayList<DynamicItem>()
-//    var filterLiveData: MutableLiveData<> = MutableLiveData<ArrayList<>>()
     var livedataCart: MutableLiveData<Cart> = MutableLiveData<Cart>()
+
 
     fun getHomeData(context: Context,fragment: ShopFragment) {
         RetrofitBuilder.build().create(ApiInterface::class.java).getHomeData(SharedPreferenceClass.getEmail(context).toString())
@@ -82,7 +82,6 @@ class HomeViewModel : ViewModel() {
                 }
             })
     }
-
 
     private fun createHomeList(it: Response): ArrayList<DynamicItem> {
         val homeList = ArrayList<DynamicItem>()

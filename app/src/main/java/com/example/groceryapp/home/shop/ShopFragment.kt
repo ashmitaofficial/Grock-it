@@ -9,6 +9,7 @@ import android.widget.ProgressBar
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.RecyclerView
 import com.example.groceryapp.R
+import com.example.groceryapp.base.utils.AppConstants
 import com.example.groceryapp.home.HomeViewModel
 
 class ShopFragment : Fragment() {
@@ -21,6 +22,8 @@ class ShopFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+            val cid = this.arguments?.getInt(AppConstants.CATEGORY_ID, -1)
 
 
         val view = inflater.inflate(R.layout.fragment_shop, container, false)
@@ -37,6 +40,7 @@ class ShopFragment : Fragment() {
             progress_bar.visibility= View.GONE
             recyclerView.visibility=View.VISIBLE
         }
+
         return view.rootView
     }
 

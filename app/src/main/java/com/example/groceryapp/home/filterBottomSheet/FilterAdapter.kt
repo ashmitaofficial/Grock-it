@@ -29,7 +29,7 @@ class FilterAdapter(private val list: ArrayList<String>,val context: FragmentAct
             override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
                 if (isChecked) {
                     selectedItems.add(holder.productName.text.toString())
-                } else {
+                }else {
                     selectedItems.remove(holder.productName.text.toString())
                 }
             }
