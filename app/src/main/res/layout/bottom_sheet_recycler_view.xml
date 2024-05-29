@@ -1,39 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#F2F3F2"
     android:orientation="vertical">
 
-    <TextView
-        style="@style/medium_heading_textStyle"
+    <ProgressBar
+        android:id="@+id/progress_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Categories"
-        android:padding="10dp"
-        android:textColor="@android:color/black"/>
+        android:layout_gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="visible"
+        android:paddingBottom="50dp"
+        android:paddingTop="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:indeterminateTint="@color/app_color" />
 
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/filter_recycler_view"
+    <LinearLayout
+        android:id="@+id/linear_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        />
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/medium_heading_textStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Categories"
+            android:padding="10dp"
+            android:textColor="@android:color/black"/>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/filter_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            />
 
 
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/filter_btn"
-        style="@style/button_style_app"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginVertical="15dp"
-        android:background="@drawable/rounded_button_background"
-        android:padding="18dp"
-        android:text="@string/apply_filter_btn"
-        android:textAllCaps="false" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/filter_btn"
+            style="@style/button_style_app"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="15dp"
+            android:background="@drawable/rounded_button_background"
+            android:padding="18dp"
+            android:text="@string/apply_filter_btn"
+            android:textAllCaps="false" />
 
-</LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

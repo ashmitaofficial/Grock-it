@@ -61,10 +61,11 @@
             android:layout_margin="15dp"
             android:background="@drawable/rounded_button_background"
             android:padding="18dp"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:text="@string/add_basket_btn"
+            android:text="@string/addCart_label"
             android:textAllCaps="false" />
 
 

@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.ProgressBar
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -13,7 +15,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.groceryapp.R
 import com.example.groceryapp.base.utils.AppConstants
-import com.example.groceryapp.home.bottomSheet.FilterBottomSheet
+import com.example.groceryapp.home.filterBottomSheet.FilterBottomSheet
 import com.example.groceryapp.home.productList.ProductListViewModel
 
 class ProductListingFragment : Fragment() {
@@ -24,6 +26,8 @@ class ProductListingFragment : Fragment() {
     lateinit var add_btn: ImageButton
     lateinit var search_bar: SearchView
     lateinit var bottomSheet: FilterBottomSheet
+    lateinit var progressBar: ProgressBar
+    lateinit var linearLayout: LinearLayout
     var originalList: List<Product> = ArrayList()
 
 
@@ -40,10 +44,14 @@ class ProductListingFragment : Fragment() {
         filter_icon = view.findViewById(R.id.filter_icon)
         recyclerView = view.findViewById(R.id.product_list_recycler_view)
         search_bar = view.findViewById(R.id.search_bar)
+        progressBar= view.findViewById(R.id.progress_bar)
+        linearLayout= view.findViewById(R.id.linear_layout)
         recyclerView.layoutManager = GridLayoutManager(requireContext(), 2, RecyclerView.VERTICAL, false)
 
         filter_icon.setOnClickListener {
-            viewmodel.getFilterItems(requireContext())
+//            recyclerView.visibility=View.GONE
+
+//            viewmodel.getFilterItems(requireContext())
             val bottomSheet = FilterBottomSheet(selectedFilterItem = {
                 filterList(it)
             })
@@ -72,6 +80,8 @@ class ProductListingFragment : Fragment() {
 
 
         if (cid == null) {
+            progressBar.visibility=View.VISIBLE
+            linearLayout.visibility=View.GONE
             viewmodel.getProductListData(requireContext(), this)
         }else if(!searchItem.isNullOrEmpty()){
             viewmodel.searchItem(requireContext(),searchItem)

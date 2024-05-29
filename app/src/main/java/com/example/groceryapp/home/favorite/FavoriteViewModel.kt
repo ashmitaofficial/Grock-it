@@ -1,10 +1,13 @@
 package com.example.groceryapp.home.favorite
 
 import android.content.Context
+import android.view.View
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.recyclerview.widget.RecyclerView
 import com.example.groceryapp.base.utils.SharedPreferenceClass
 import com.example.groceryapp.category.Category
 import com.example.groceryapp.dao.ApiInterface
@@ -19,9 +22,12 @@ import retrofit2.Callback
 
 class FavoriteViewModel : ViewModel() {
 
+    lateinit var progressBar: ProgressBar
+    lateinit var recyclerView: RecyclerView
+
     var livedata: MutableLiveData<ArrayList<Product>> = MutableLiveData<ArrayList<Product>>()
 
-    fun getWishList(context: Context) {
+    fun getWishList(context: Context,fragment: FavoriteFragment) {
         RetrofitBuilder.build().create(ApiInterface::class.java).getWishList()
             .enqueue(object : Callback<Response> {
                 override fun onResponse(
@@ -34,6 +40,8 @@ class FavoriteViewModel : ViewModel() {
                             JSONArray(response.body()?.data as ArrayList<*>).toString(), type
                         )
                         livedata.postValue(getWishlist)
+                        fragment.progress_bar.visibility= View.GONE
+                        fragment.recyclerView.visibility= View.VISIBLE
 
                     } else {
                         Toast.makeText(context, response.body()?.error?.msg, Toast.LENGTH_SHORT)

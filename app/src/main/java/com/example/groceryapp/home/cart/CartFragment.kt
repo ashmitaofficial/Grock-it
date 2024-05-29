@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.ProgressBar
+import androidx.appcompat.widget.AppCompatButton
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.RecyclerView
@@ -19,9 +20,8 @@ class CartFragment : Fragment() {
     val cartViewModel: CartViewModel by viewModels()
     lateinit var recyclerView: RecyclerView
     lateinit var constraintLayout: ConstraintLayout
-
-
-    private lateinit var progress_bar:ProgressBar
+     lateinit var progress_bar:ProgressBar
+     lateinit var AddBasket_btn:AppCompatButton
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,12 +31,18 @@ class CartFragment : Fragment() {
         recyclerView = view.findViewById(R.id.cart_recycler_view)
         progress_bar=view.findViewById(R.id.progress_bar)
         constraintLayout=view.findViewById(R.id.constraint_layout)
+        AddBasket_btn=view.findViewById(R.id.AddBasket_btn)
 
         constraintLayout.visibility=View.GONE
         progress_bar.visibility=View.VISIBLE
-        cartViewModel.getCart(requireContext())
+        cartViewModel.getCart(requireContext(),this)
 
         cartViewModel.livedata.observe(viewLifecycleOwner){
+            if(it.productList.size<=0){
+                AddBasket_btn.visibility=View.GONE
+            }else{
+                AddBasket_btn.visibility=View.VISIBLE
+            }
             recyclerView.adapter = CartAdapter(it.productList,
                 plusClicked = {
                 cartViewModel.addCart(requireContext(),it)

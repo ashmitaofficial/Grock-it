@@ -14,7 +14,7 @@ import com.example.groceryapp.home.HomeViewModel
 class ShopFragment : Fragment() {
 
     val homeViewModel: HomeViewModel by viewModels()
-    private lateinit var progress_bar:ProgressBar
+     lateinit var progress_bar:ProgressBar
 
     lateinit var recyclerView: RecyclerView
     override fun onCreateView(
@@ -30,7 +30,7 @@ class ShopFragment : Fragment() {
 
         progress_bar.visibility= View.VISIBLE
         recyclerView.visibility=View.GONE
-        homeViewModel.getHomeData(requireActivity())
+        homeViewModel.getHomeData(requireActivity(),this@ShopFragment)
 
         homeViewModel.liveData.observe(viewLifecycleOwner) {
             recyclerView.adapter = ShopAdapter(it,requireActivity())

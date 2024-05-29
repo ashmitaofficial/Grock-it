@@ -31,7 +31,9 @@ class FavoriteFragment : Fragment() {
         recyclerView = view.findViewById(R.id.fav_recycler_view)
         progress_bar = view.findViewById(R.id.progress_bar)
 
-        favoriteViewModel.getWishList(requireContext())
+        progress_bar.visibility=View.VISIBLE
+        recyclerView.visibility=View.GONE
+        favoriteViewModel.getWishList(requireContext(),this)
 
         favoriteViewModel.livedata.observe(viewLifecycleOwner){
             recyclerView.adapter = FavoriteAdapter(it,requireActivity())

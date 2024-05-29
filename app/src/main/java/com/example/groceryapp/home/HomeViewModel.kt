@@ -16,6 +16,7 @@ import com.example.groceryapp.category.Category
 import com.example.groceryapp.base.DynamicItem
 import com.example.groceryapp.base.utils.SharedPreferenceClass
 import com.example.groceryapp.home.cart.Cart
+import com.example.groceryapp.home.shop.ShopFragment
 import com.example.groceryapp.product.Product
 import com.example.groceryapp.product.ProductListingFragment
 import com.google.gson.Gson
@@ -33,7 +34,7 @@ class HomeViewModel : ViewModel() {
 //    var filterLiveData: MutableLiveData<> = MutableLiveData<ArrayList<>>()
     var livedataCart: MutableLiveData<Cart> = MutableLiveData<Cart>()
 
-    fun getHomeData(context: Context) {
+    fun getHomeData(context: Context,fragment: ShopFragment) {
         RetrofitBuilder.build().create(ApiInterface::class.java).getHomeData(SharedPreferenceClass.getEmail(context).toString())
             .enqueue(object : Callback<Response> {
                 override fun onResponse(
@@ -43,6 +44,8 @@ class HomeViewModel : ViewModel() {
 //                        Toast.makeText(context, "Logged in Succesfully", Toast.LENGTH_SHORT).show()
                        shopList= createHomeList(response.body()!!)
                         liveData.postValue(shopList)
+                       fragment.progress_bar.visibility= View.GONE
+                       fragment.recyclerView.visibility=View.VISIBLE
 
                     } else {
                         Toast.makeText(context, response.body()?.error?.msg, Toast.LENGTH_SHORT)

@@ -1,5 +1,6 @@
 package com.example.groceryapp.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -69,6 +70,13 @@ class HomeActivity : AppCompatActivity() {
             }
         })
         bottomNavigationView.selectedItemId = R.id.shop_txt
+
+    }
+
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+
+        bottomNavigationView.selectedItemId = R.id.cart_txt
 
     }
 

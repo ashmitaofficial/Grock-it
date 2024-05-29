@@ -1,4 +1,4 @@
-package com.example.groceryapp.home.bottomSheet
+package com.example.groceryapp.home.filterBottomSheet
 
 import android.view.LayoutInflater
 import android.view.View

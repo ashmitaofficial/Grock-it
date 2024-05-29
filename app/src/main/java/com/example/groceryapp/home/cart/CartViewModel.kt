@@ -1,6 +1,7 @@
 package com.example.groceryapp.home.cart
 
 import android.content.Context
+import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -18,7 +19,7 @@ import retrofit2.Callback
 class CartViewModel : ViewModel() {
     var livedata: MutableLiveData<Cart> = MutableLiveData<Cart>()
 
-    fun getCart(context: Context) {
+    fun getCart(context: Context,fragment: CartFragment) {
         RetrofitBuilder.build().create(ApiInterface::class.java).getCart()
             .enqueue(object : Callback<Response> {
                 override fun onResponse(
@@ -30,15 +31,19 @@ class CartViewModel : ViewModel() {
                             JSONObject(response.body()?.data as Map<*,*>).toString(), type
                         )
                         livedata.postValue(cartItems)
+                        fragment.constraintLayout.visibility= View.VISIBLE
+                        fragment.progress_bar.visibility= View.GONE
 
                     } else {
                         Toast.makeText(context, response.body()?.error?.msg, Toast.LENGTH_SHORT)
                             .show()
+                        fragment.progress_bar.visibility= View.GONE
                     }
                 }
 
                 override fun onFailure(call: Call<Response>, t: Throwable) {
                     Toast.makeText(context, "Try again", Toast.LENGTH_SHORT).show()
+                    fragment.progress_bar.visibility= View.GONE
                 }
             })
     }

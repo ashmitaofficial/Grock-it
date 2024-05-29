@@ -55,6 +55,16 @@
     <string name="my_cart_label">My Cart</string>
     <string name="product_name_cart">Bell Pepper Red</string>
     <string name="favorites_label">Favorite</string>
+    <string name="addCart_label">Add All To Cart</string>
+    <string name="checkout_label">Checkout</string>
+    <string name="deleivery_label">Delivery</string>
+    <string name="payment_label">Payment</string>
+    <string name="select_method_label">Select Method</string>
+    <string name="promo_label">Promo Code</string>
+    <string name="discount_label">Pick Discount</string>
+    <string name="total_bill_label">Total Cost</string>
+    <string name="place_order_btn">Place Order</string>
+    <string name="TandC">By Placing an order you agree to our <font color="#181725">Terms</font> and<font color="#181725"> Conditions</font></string>
 
 
 </resources>

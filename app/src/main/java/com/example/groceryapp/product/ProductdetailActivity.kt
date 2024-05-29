@@ -1,22 +1,28 @@
 package com.example.groceryapp.product
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
-import android.widget.LinearLayout
+import android.widget.ProgressBar
+import android.widget.ScrollView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatButton
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
-import androidx.recyclerview.widget.RecyclerView
 import com.example.groceryapp.R
+import com.example.groceryapp.authentication.fragment.SignupFragment
+import com.example.groceryapp.home.HomeActivity
+import com.example.groceryapp.home.cart.CartFragment
 import com.example.groceryapp.home.productList.ProductListViewModel
 import com.squareup.picasso.Picasso
+
 
 class ProductdetailActivity : AppCompatActivity() {
 
@@ -37,7 +43,10 @@ class ProductdetailActivity : AppCompatActivity() {
     private lateinit var less_btn: ImageButton
     private lateinit var nutrition_expand_btn: ImageButton
     private lateinit var nutrition_less_btn: ImageButton
-    private var map= HashMap<String, Any>()
+    lateinit var progress_bar: ProgressBar
+    lateinit var ScrollView: ScrollView
+    lateinit var AddBasket_btn: AppCompatButton
+    private var map = HashMap<String, Any>()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -69,10 +78,15 @@ class ProductdetailActivity : AppCompatActivity() {
         less_btn = findViewById(R.id.less_btn)
         nutrition_expand_btn = findViewById(R.id.nutrition_expand_btn)
         nutrition_less_btn = findViewById(R.id.nutrition_less_btn)
+        progress_bar = findViewById(R.id.progress_bar)
+        ScrollView = findViewById(R.id.scrollView)
+        AddBasket_btn = findViewById(R.id.AddBasket_btn)
 
-
-
+        progress_bar.visibility = View.VISIBLE
+        ScrollView.visibility = View.GONE
         viewModel.getProductById(this, id)
+
+
 
         viewModel.productDetailLiveData.observe(this) {
             map.put("id", it.id.toString())
@@ -113,16 +127,15 @@ class ProductdetailActivity : AppCompatActivity() {
             }
         }
 
-        viewModel.cartLivedata.observe(this){
-            if(it==true)
-            {
-                quantity.text= (quantity.text.toString().toInt() +1).toString()
+        viewModel.cartLivedata.observe(this) {
+            if (it == true) {
+                quantity.text = (quantity.text.toString().toInt() + 1).toString()
             }
         }
 
-        viewModel.cartLivedataMinus.observe(this){
-            if(it==true){
-                quantity.text= (quantity.text.toString().toInt() -1).toString()
+        viewModel.cartLivedataMinus.observe(this) {
+            if (it == true) {
+                quantity.text = (quantity.text.toString().toInt() - 1).toString()
             }
         }
 
@@ -134,13 +147,14 @@ class ProductdetailActivity : AppCompatActivity() {
         }
 
         minusbtn.setOnClickListener {
-            if(quantity.text.toString().toInt()>0){
-            viewModel.removeCartMinus(this, id)}
+            if (quantity.text.toString().toInt() > 0) {
+                viewModel.removeCartMinus(this, id)
+            }
         }
 
 
         plusbtn.setOnClickListener {
-           viewModel.addCart(this,map)
+            viewModel.addCart(this, map)
 
         }
 
@@ -166,6 +180,18 @@ class ProductdetailActivity : AppCompatActivity() {
             nutrition_expand_btn.visibility = View.VISIBLE
             nutrition_less_btn.visibility = View.INVISIBLE
             nutrition_details.visibility = View.GONE
+        }
+
+        viewModel.addBasketLiveData.observe(this) {
+            val homeIntent = Intent(this, HomeActivity::class.java)
+            startActivity(homeIntent)
+            finish()
+        }
+
+        AddBasket_btn.setOnClickListener{
+            progress_bar.visibility = View.VISIBLE
+            ScrollView.visibility = View.GONE
+            viewModel.addBasket(this, map,this)
         }
 
 
