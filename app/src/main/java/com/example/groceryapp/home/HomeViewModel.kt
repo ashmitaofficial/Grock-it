@@ -29,7 +29,6 @@ import retrofit2.Callback
 class HomeViewModel : ViewModel() {
 
     var liveData: MutableLiveData<ArrayList<DynamicItem>> = MutableLiveData<ArrayList<DynamicItem>>()
-//    var liveDataWishlist: MutableLiveData<ArrayList<Product>> = MutableLiveData<ArrayList<Product>>()
     var shopList = ArrayList<DynamicItem>()
     var livedataCart: MutableLiveData<Cart> = MutableLiveData<Cart>()
 

@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.groceryapp.R
+import com.example.groceryapp.home.account.AccountFragment
 import com.example.groceryapp.home.cart.CartFragment
 import com.example.groceryapp.home.explore.ExploreFragment
 import com.example.groceryapp.home.favorite.FavoriteFragment
@@ -21,8 +22,7 @@ import com.google.android.material.navigation.NavigationBarView
 
 class HomeActivity : AppCompatActivity() {
 
-     lateinit var bottomNavigationView: BottomNavigationView
-    private var doubleBackToExitPressedOnce = false
+    lateinit var bottomNavigationView: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,22 +47,25 @@ class HomeActivity : AppCompatActivity() {
                         .replace(R.id.container, ShopFragment::class.java, null)
                         .commit()
                     return true
-                }
-               else if (p0.itemId == R.id.explore_txt) {
+                } else if (p0.itemId == R.id.explore_txt) {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.container, ExploreFragment::class.java, null)
                         .commit()
                     return true
-                }
-                else if(p0.itemId == R.id.favorite_txt){
+                } else if (p0.itemId == R.id.favorite_txt) {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.container, FavoriteFragment::class.java, null)
                         .commit()
                     return true
-                }
-                else if(p0.itemId == R.id.cart_txt) {
+                } else if (p0.itemId == R.id.cart_txt) {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.container, CartFragment::class.java, null)
+                        .commit()
+                    return true
+                }
+                else{
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.container, AccountFragment::class.java, null)
                         .commit()
                     return true
                 }
@@ -79,19 +82,4 @@ class HomeActivity : AppCompatActivity() {
         bottomNavigationView.selectedItemId = R.id.cart_txt
 
     }
-
-//    override fun onBackPressed() {
-//        if (doubleBackToExitPressedOnce) {
-//            super.onBackPressed()
-//            return
-//        }
-//
-//        this.doubleBackToExitPressedOnce = true
-//        Toast.makeText(this, "Are you sure you want to exit?", Toast.LENGTH_SHORT).show()
-//
-//        Handler(Looper.getMainLooper()).postDelayed(Runnable { doubleBackToExitPressedOnce = false }, 2000)
-//    }
-
-
-
 }

@@ -78,7 +78,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="15dp"
-            android:text="Resend Code"
+            android:text="@string/resend_code_txt"
             android:textColor="@color/app_color"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@id/forwardBtn"

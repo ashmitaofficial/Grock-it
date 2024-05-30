@@ -17,8 +17,5 @@ class CategoryViewHolder(itemView: View,val context: FragmentActivity) : BaseVie
         val data = item.data as ArrayList<Category>
         val recycler_view = itemView.findViewById<RecyclerView>(R.id.home_grocery_recycler_view)
         recycler_view.adapter = CategoryAdapter(data,context,context)
-
-
-
     }
 }

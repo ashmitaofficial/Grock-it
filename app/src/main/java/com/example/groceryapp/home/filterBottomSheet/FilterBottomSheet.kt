@@ -27,7 +27,7 @@ import retrofit2.Callback
 class FilterBottomSheet(val selectedFilterItem: (String)-> Unit):BottomSheetDialogFragment() {
     val viewmodel: ProductListViewModel by viewModels()
     lateinit var recyclerView: RecyclerView
-    lateinit var applyBtn: Button
+    lateinit var filterBtn: Button
     lateinit var progress_bar: ProgressBar
     lateinit var linearLayout: LinearLayout
 
@@ -37,9 +37,9 @@ class FilterBottomSheet(val selectedFilterItem: (String)-> Unit):BottomSheetDial
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.bottom_sheet_recycler_view,container,false)
+        val view = inflater.inflate(R.layout.filter_bottom_sheet_recycler_view,container,false)
         recyclerView=view.findViewById(R.id.filter_recycler_view)
-        applyBtn = view.findViewById(R.id.filter_btn)
+        filterBtn = view.findViewById(R.id.filter_btn)
         linearLayout=view.findViewById(R.id.linear_layout)
         progress_bar=view.findViewById(R.id.progress_bar)
 
@@ -49,7 +49,7 @@ class FilterBottomSheet(val selectedFilterItem: (String)-> Unit):BottomSheetDial
         progress_bar.visibility=View.VISIBLE
         getFilterItems(requireContext())
 
-        applyBtn.setOnClickListener {
+        filterBtn.setOnClickListener {
             val list = FilterAdapter.selectedItems
             var text = ""
             list.forEach {
@@ -81,13 +81,11 @@ class FilterBottomSheet(val selectedFilterItem: (String)-> Unit):BottomSheetDial
                     } else {
                         Toast.makeText(context, response.body()?.error?.msg, Toast.LENGTH_SHORT)
                             .show()
-//                        progress_bar.visibility=View.GONE
                     }
                 }
 
                 override fun onFailure(call: Call<Response>, t: Throwable) {
                     Toast.makeText(context, "Try again", Toast.LENGTH_SHORT).show()
-//                    progress_bar.visibility=View.GONE
                 }
             })
     }

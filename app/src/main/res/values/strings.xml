@@ -65,6 +65,30 @@
     <string name="total_bill_label">Total Cost</string>
     <string name="place_order_btn">Place Order</string>
     <string name="TandC">By Placing an order you agree to our <font color="#181725">Terms</font> and<font color="#181725"> Conditions</font></string>
-
+    <string name="order_accepted_label">Your Order has been accepted</string>
+    <string name="order_body">Your items has been placed and is on</string>
+    <string name="order_body_2">its way to being processed</string>
+    <string name="track_order_btn">Track Order</string>
+    <string name="back_home_txt">Back to home</string>
+    <string name="review_txt">Review</string>
+    <string name="nutrition_txt">Nutrition</string>
+    <string name="nutrition_qty_txt">100gr</string>
+    <string name="location_txt">Dhaka, banaras</string>
+    <string name="resend_code_txt">Resend Code</string>
+    <string name="checkout_btn">Go to Checkout</string>
+    <string name="categories_heading">Categories</string>
+    <string name="category_name_txt">Fresh fruits and vegetables</string>
+    <string name="category_name">Pulses</string>
+    <string name="nutrition_desc">20g protein, 2g fats, molecular acid rich in phosphate</string>
+    <string name="username">Afsar Hossen</string>
+    <string name="useremail">afasr097@gmail.com</string>
+    <string name="order_label">Orders</string>
+    <string name="my_detail_label">My Details</string>
+    <string name="deliver_label">Delivery Address</string>
+    <string name="payment_method_label">Payment Methods</string>
+    <string name="notification_label">Notifications</string>
+    <string name="help_label">Help</string>
+    <string name="about_label">About</string>
+    <string name="logout_btn">Log Out</string>
 
 </resources>

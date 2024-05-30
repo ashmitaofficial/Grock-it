@@ -34,18 +34,15 @@ class ExploreViewModel : ViewModel() {
                             Gson().fromJson(JSONArray(response.body()?.data as ArrayList<*>).toString(), type)
 
                         liveData.postValue(exploreList)
-//                    fragment.loader.visibility = View.GONE
                     } else {
                         Toast.makeText(context, response.body()?.error?.msg, Toast.LENGTH_SHORT)
                             .show()
-//                        fragment.loader.visibility = View.GONE
                     }
 
                 }
 
                 override fun onFailure(call: Call<Response>, t: Throwable) {
                     Toast.makeText(context, "Try again", Toast.LENGTH_SHORT).show()
-//                    fragment.loader.visibility = View.GONE
                 }
             })
     }
@@ -62,17 +59,14 @@ class ExploreViewModel : ViewModel() {
                         val searchItem: ArrayList<Category> =
                             Gson().fromJson(JSONArray(response.body()?.data as  ArrayList<*>).toString(), type)
                         liveData.postValue(searchItem)
-//                    fragment.loader.visibility = View.GONE
                     } else {
                         Toast.makeText(context, response.body()?.error?.msg, Toast.LENGTH_SHORT)
                             .show()
-//                        fragment.loader.visibility = View.GONE
                     }
                 }
 
                 override fun onFailure(call: Call<Response>, t: Throwable) {
                     Toast.makeText(context, "Try again", Toast.LENGTH_SHORT).show()
-//                    fragment.loader.visibility = View.GONE
                 }
             })
     }

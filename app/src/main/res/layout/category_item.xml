@@ -41,7 +41,7 @@
                 android:textColor="@android:color/black"
                 android:layout_gravity="center_horizontal"
                 android:padding="33dp"
-                tools:text="Pulses" />
+                tools:text="@string/category_name" />
 
 
         </LinearLayout>

@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:padding="10dp"
-        android:text="Nutrition"
+        android:text="@string/nutrition_txt"
         android:textColor="#181725"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,7 +29,7 @@
         android:gravity="center"
         android:layout_marginTop="8dp"
         android:padding="5dp"
-        android:text="100gr"
+        android:text="@string/nutrition_qty_txt"
         app:layout_constraintStart_toEndOf="@+id/text"
         app:layout_constraintTop_toTopOf="parent" />
 

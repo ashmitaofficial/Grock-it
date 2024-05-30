@@ -15,7 +15,7 @@ class FilterAdapter(private val list: ArrayList<String>,val context: FragmentAct
         val selectedItems = ArrayList<String>()
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewholder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.bottom_sheet_item, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.filter_bottom_sheet_item, parent, false)
         return MyViewholder(view)
     }
 

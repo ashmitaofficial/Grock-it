@@ -52,7 +52,7 @@
         android:layout_marginTop="30dp"
         app:layout_constraintTop_toTopOf="parent "
         app:layout_constraintEnd_toStartOf="@id/right_icon"
-        tools:text="\u20B9 120" />
+        tools:text="@string/product_price" />
 
     <ImageButton
         android:id="@+id/right_icon"

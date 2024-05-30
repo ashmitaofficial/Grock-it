@@ -11,7 +11,7 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="Review"
+            android:text="@string/review_txt"
             android:textColor="#181725"
             android:textSize="20sp" />
 

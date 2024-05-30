@@ -1,6 +1,5 @@
 package com.example.groceryapp.product
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -17,9 +16,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
 import com.example.groceryapp.R
-import com.example.groceryapp.authentication.fragment.SignupFragment
 import com.example.groceryapp.home.HomeActivity
-import com.example.groceryapp.home.cart.CartFragment
 import com.example.groceryapp.home.productList.ProductListViewModel
 import com.squareup.picasso.Picasso
 
@@ -80,7 +77,7 @@ class ProductdetailActivity : AppCompatActivity() {
         nutrition_less_btn = findViewById(R.id.nutrition_less_btn)
         progress_bar = findViewById(R.id.progress_bar)
         ScrollView = findViewById(R.id.scrollView)
-        AddBasket_btn = findViewById(R.id.AddBasket_btn)
+        AddBasket_btn = findViewById(R.id.checkOut_btn)
 
         progress_bar.visibility = View.VISIBLE
         ScrollView.visibility = View.GONE

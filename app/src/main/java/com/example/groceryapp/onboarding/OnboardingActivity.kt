@@ -22,8 +22,6 @@ class OnboardingActivity : AppCompatActivity() {
 
     private lateinit var checkLocationPermission: ActivityResultLauncher<Array<String>>
     private lateinit var getStartedBtn: Button
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)

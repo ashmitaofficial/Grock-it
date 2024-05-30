@@ -37,14 +37,12 @@ import java.util.Objects
 class ProductListViewModel : ViewModel() {
     var liveData: MutableLiveData<ArrayList<Product>> = MutableLiveData<ArrayList<Product>>()
     var addBasketLiveData: MutableLiveData<Boolean> = MutableLiveData<Boolean>()
-
     var productDetailLiveData: MutableLiveData<Product> = MutableLiveData<Product>()
     var wishlistLivedata: MutableLiveData<Boolean> = MutableLiveData<Boolean>()
     var cartLivedata: MutableLiveData<Boolean> = MutableLiveData<Boolean>()
     var cartLivedataMinus: MutableLiveData<Boolean> = MutableLiveData<Boolean>()
     var filterLivedata: MutableLiveData<List<String>> = MutableLiveData<List<String>>()
     lateinit var progress_bar: ProgressBar
-    lateinit var ScrollView: ScrollView
     fun getProductListData(context: Context, fragment: ProductListingFragment) {
 
         RetrofitBuilder.build().create(ApiInterface::class.java).getProducts()
@@ -129,18 +127,15 @@ class ProductListViewModel : ViewModel() {
                             )
 
                         liveData.postValue(categoryDetail)
-//                    fragment.loader.visibility = View.GONE
                     } else {
                         Toast.makeText(context, response.body()?.error?.msg, Toast.LENGTH_SHORT)
                             .show()
-//                        fragment.loader.visibility = View.GONE
                     }
 
                 }
 
                 override fun onFailure(call: Call<Response>, t: Throwable) {
                     Toast.makeText(context, "Try again", Toast.LENGTH_SHORT).show()
-//                    fragment.loader.visibility = View.GONE
                 }
             })
     }
@@ -158,22 +153,15 @@ class ProductListViewModel : ViewModel() {
                             "Item added successfully in wishlist",
                             Toast.LENGTH_SHORT
                         ).show()
-//                        val type = object : TypeToken<ArrayList<Product?>?>() {}.type
-//                        val addItemInWishlist: ArrayList<Product> =
-//                            Gson().fromJson(JSONArray(response.body()?.data as  ArrayList<*>).toString(), type)
-
                         wishlistLivedata.postValue(true)
-//                    fragment.loader.visibility = View.GONE
                     } else {
                         Toast.makeText(context, response.body()?.error?.msg, Toast.LENGTH_SHORT)
                             .show()
-//                        fragment.loader.visibility = View.GONE
                     }
                 }
 
                 override fun onFailure(call: Call<Response>, t: Throwable) {
                     Toast.makeText(context, "Try again", Toast.LENGTH_SHORT).show()
-//                    fragment.loader.visibility = View.GONE
                 }
             })
     }
@@ -191,22 +179,15 @@ class ProductListViewModel : ViewModel() {
                             "Item remove successfully from wishlist",
                             Toast.LENGTH_SHORT
                         ).show()
-//                        val type = object : TypeToken<ArrayList<Product?>?>() {}.type
-//                        val addItemInWishlist: ArrayList<Product> =
-//                            Gson().fromJson(JSONArray(response.body()?.data as  ArrayList<*>).toString(), type)
-
                         wishlistLivedata.postValue(true)
-//                    fragment.loader.visibility = View.GONE
                     } else {
                         Toast.makeText(context, response.body()?.error?.msg, Toast.LENGTH_SHORT)
                             .show()
-//                        fragment.loader.visibility = View.GONE
                     }
                 }
 
                 override fun onFailure(call: Call<Response>, t: Throwable) {
                     Toast.makeText(context, "Try again", Toast.LENGTH_SHORT).show()
-//                    fragment.loader.visibility = View.GONE
                 }
             })
     }
@@ -226,17 +207,14 @@ class ProductListViewModel : ViewModel() {
                                 type
                             )
                         liveData.postValue(searchItem)
-//                    fragment.loader.visibility = View.GONE
                     } else {
                         Toast.makeText(context, response.body()?.error?.msg, Toast.LENGTH_SHORT)
                             .show()
-//                        fragment.loader.visibility = View.GONE
                     }
                 }
 
                 override fun onFailure(call: Call<Response>, t: Throwable) {
                     Toast.makeText(context, "Try again", Toast.LENGTH_SHORT).show()
-//                    fragment.loader.visibility = View.GONE
                 }
             })
     }
@@ -328,6 +306,4 @@ class ProductListViewModel : ViewModel() {
                 }
             })
     }
-
-
 }

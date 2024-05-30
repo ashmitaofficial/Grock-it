@@ -1,32 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background2"
     android:orientation="vertical"
-    android:layout_height="match_parent">
-
+    android:padding="18dp">
 
     <ImageView
+        android:id="@+id/image"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/order_accepted"
         android:layout_gravity="center"
-        android:padding="15dp"/>
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/order_accepted" />
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Your Order has been accepted"
-        android:gravity="center"
+        android:id="@+id/order_label"
         style="@style/label_medium_textStyle"
-        android:padding="16dp"
-        />
-
-    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Your items has been placed and is on it's way to being processed"
-        style="@style/label_grey_textStyle"/>
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="@string/order_accepted_label"
+        android:textSize="28dp" />
 
+    <TextView
+        android:id="@+id/order_body"
+        style="@style/label_grey_textStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/order_body"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@id/order_body"
+        style="@style/label_grey_textStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/order_body_2"
+        android:textSize="15sp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/track_btn"
+        style="@style/button_style_app"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:background="@drawable/rounded_button_background"
+        android:text="@string/track_order_btn"
+        android:textAllCaps="false" />
+
+    <TextView
+        android:id="@+id/back_home_txt"
+        style="@style/body_textStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:gravity="center"
+        android:text="@string/back_home_txt"
+        android:textSize="18dp" />
 
 
 </LinearLayout>
