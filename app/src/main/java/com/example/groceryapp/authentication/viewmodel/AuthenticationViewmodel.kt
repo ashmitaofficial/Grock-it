@@ -47,9 +47,7 @@ class AuthenticationViewmodel : ViewModel() {
                         Toast.makeText(context, "Logged in Succesfully", Toast.LENGTH_SHORT).show()
                         val typeUser = object : TypeToken<UserModel?>() {}.type
                         val user: UserModel = Gson().fromJson(
-                                JSONObject(response.body()?.data as LinkedTreeMap<*, *>).toString(),
-                                typeUser
-                            )
+                            JSONObject(response.body()?.data as LinkedTreeMap<*, *>).toString(), typeUser)
                         SharedPreferenceClass.savedLogin(context, user.email.toString())
                         fragment.loader.visibility = View.GONE
                         val homeIntent = Intent(context, HomeActivity::class.java)

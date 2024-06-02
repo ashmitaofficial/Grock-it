@@ -90,5 +90,8 @@
     <string name="help_label">Help</string>
     <string name="about_label">About</string>
     <string name="logout_btn">Log Out</string>
+    <string name="order_fail_label">Oops! Order Failed</string>
+    <string name="something_wrong_label">Something went wrong.</string>
+    <string name="try_again_btn">Please Try Again</string>
 
 </resources>

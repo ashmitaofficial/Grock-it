@@ -25,12 +25,8 @@ class ProductListingFragment : Fragment() {
     lateinit var filter_icon: ImageView
     lateinit var add_btn: ImageButton
     lateinit var search_bar: SearchView
-    lateinit var bottomSheet: FilterBottomSheet
     lateinit var progressBar: ProgressBar
     lateinit var linearLayout: LinearLayout
-    var originalList: List<Product> = ArrayList()
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

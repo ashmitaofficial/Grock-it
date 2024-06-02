@@ -30,9 +30,6 @@ class HomeViewModel : ViewModel() {
 
     var liveData: MutableLiveData<ArrayList<DynamicItem>> = MutableLiveData<ArrayList<DynamicItem>>()
     var shopList = ArrayList<DynamicItem>()
-    var livedataCart: MutableLiveData<Cart> = MutableLiveData<Cart>()
-
-
     fun getHomeData(context: Context,fragment: ShopFragment) {
         RetrofitBuilder.build().create(ApiInterface::class.java).getHomeData(SharedPreferenceClass.getEmail(context).toString())
             .enqueue(object : Callback<Response> {
@@ -40,7 +37,6 @@ class HomeViewModel : ViewModel() {
                     call: Call<Response>, response: retrofit2.Response<Response>
                 ) {
                     if (response.body()?.status == 200) {
-//                        Toast.makeText(context, "Logged in Succesfully", Toast.LENGTH_SHORT).show()
                        shopList= createHomeList(response.body()!!)
                         liveData.postValue(shopList)
                        fragment.progress_bar.visibility= View.GONE
@@ -51,31 +47,6 @@ class HomeViewModel : ViewModel() {
                             .show()
                     }
                 }
-                override fun onFailure(call: Call<Response>, t: Throwable) {
-                    Toast.makeText(context, "Try again", Toast.LENGTH_SHORT).show()
-                }
-            })
-    }
-
-    fun addCart(context: Context, map: HashMap<String,Any>){
-        RetrofitBuilder.build().create(ApiInterface::class.java).addCart(map)
-            .enqueue(object : Callback<Response> {
-                override fun onResponse(
-                    call: Call<Response>, response: retrofit2.Response<Response>
-                ) {
-                    if (response.body()?.status == 200) {
-                        val type = object : TypeToken<Cart?>() {}.type
-                        val cartItems: Cart = Gson().fromJson(
-                            JSONObject(response.body()?.data as Map<*,*>).toString(), type
-                        )
-                        livedataCart.postValue(cartItems)
-
-                    } else {
-                        Toast.makeText(context, response.body()?.error?.msg, Toast.LENGTH_SHORT)
-                            .show()
-                    }
-                }
-
                 override fun onFailure(call: Call<Response>, t: Throwable) {
                     Toast.makeText(context, "Try again", Toast.LENGTH_SHORT).show()
                 }

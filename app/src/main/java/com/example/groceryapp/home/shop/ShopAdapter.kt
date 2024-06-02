@@ -36,8 +36,7 @@ class ShopAdapter(private val list: ArrayList<DynamicItem>, val context: Fragmen
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
         when (viewType) {
             TYPE_BANNER -> {
-                val view =
-                    LayoutInflater.from(parent.context).inflate(R.layout.banner_item, parent, false)
+                val view = LayoutInflater.from(parent.context).inflate(R.layout.banner_item, parent, false)
                 return BannerViewHolder(view)
             }
 
@@ -48,9 +47,7 @@ class ShopAdapter(private val list: ArrayList<DynamicItem>, val context: Fragmen
             }
 
             TYPE_OFFER -> {
-                val view =
-                    LayoutInflater.from(parent.context)
-                        .inflate(R.layout.home_offer_item, parent, false)
+                val view = LayoutInflater.from(parent.context).inflate(R.layout.home_offer_item, parent, false)
                 return OfferViewHolder(view,context)
             }
 
@@ -70,21 +67,17 @@ class ShopAdapter(private val list: ArrayList<DynamicItem>, val context: Fragmen
             }
 
             TYPE_RECOMMEND -> {
-                val view = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.home_recommended_item, parent, false)
+                val view = LayoutInflater.from(parent.context).inflate(R.layout.home_recommended_item, parent, false)
                 return RecommendedViewHolder(view,context)
             }
 
             TYPE_SEARCH -> {
-                val view =
-                    LayoutInflater.from(parent.context).inflate(R.layout.search_item, parent, false)
+                val view = LayoutInflater.from(parent.context).inflate(R.layout.search_item, parent, false)
                 return SearchViewHolder(view,context)
             }
 
             TYPE_LOCATION -> {
-                val view =
-                    LayoutInflater.from(parent.context)
-                        .inflate(R.layout.location_item, parent, false)
+                val view = LayoutInflater.from(parent.context).inflate(R.layout.location_item, parent, false)
                 return LocationViewHolder(view)
             }
 

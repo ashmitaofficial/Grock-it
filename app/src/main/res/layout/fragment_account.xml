@@ -369,7 +369,7 @@
         android:src="@drawable/right_arrow_icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/line7" />
-    
+
     <View
         android:id="@+id/line8"
         android:layout_width="0dp"

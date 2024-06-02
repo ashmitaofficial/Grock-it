@@ -157,7 +157,6 @@ class ProductAdapter(private val list: MutableList<Product>, val context: Fragme
                             holder.price_container.layoutParams = params
                         }
 
-
                     } else {
                         Toast.makeText(context, response.body()?.error?.msg, Toast.LENGTH_SHORT)
                             .show()
@@ -169,9 +168,4 @@ class ProductAdapter(private val list: MutableList<Product>, val context: Fragme
                 }
             })
     }
-
-
-
-
-
 }

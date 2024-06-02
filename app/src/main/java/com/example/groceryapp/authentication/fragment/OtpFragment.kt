@@ -48,13 +48,10 @@ class OtpFragment : Fragment() {
 
 
         forwardBtn.setOnClickListener {
-
-
             val otp = otp_field.text
             if (otp.isNullOrEmpty()) {
                 Toast.makeText(requireContext(), "Please enter OTP", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
-
             }
             if (otp.toString().trim().toInt() == authenticationViewmodel.otp) {
                 authenticationViewmodel.loginMobile(requireActivity(),authenticationViewmodel.mobile.toString(),authenticationViewmodel.countryCode.toString(),this)
@@ -62,7 +59,6 @@ class OtpFragment : Fragment() {
                 Toast.makeText(requireContext(), "Enter valid OTP", Toast.LENGTH_SHORT).show()
             }
         }
-
         return view.rootView
     }
 }

@@ -47,6 +47,7 @@ class CartFragment : Fragment() {
             }else{
                 checkOut_btn.visibility=View.VISIBLE
             }
+
             recyclerView.adapter = CartAdapter(it.productList,
                 plusClicked = {
                 cartViewModel.addCart(requireContext(),it)

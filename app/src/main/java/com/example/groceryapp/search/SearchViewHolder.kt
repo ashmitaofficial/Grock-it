@@ -16,7 +16,7 @@ class SearchViewHolder(itemView: View,val context: FragmentActivity) : BaseViewH
     lateinit var search_bar:SearchView
 
     override fun bind(item: DynamicItem) {
-        search_bar=itemView.findViewById<SearchView>(R.id.search_bar)
+        search_bar=itemView.findViewById(R.id.search_bar)
 
         search_bar.setOnQueryTextListener(object :SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {

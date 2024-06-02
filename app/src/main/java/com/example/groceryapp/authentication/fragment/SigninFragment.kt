@@ -92,6 +92,7 @@ class  SigninFragment : Fragment() {
 
         forward_icon.setOnClickListener {
             requireActivity().currentFocus?.let { view ->
+                //hide keyboard
                 val imm =requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
                 imm?.hideSoftInputFromWindow(view.windowToken, 0)
             }
