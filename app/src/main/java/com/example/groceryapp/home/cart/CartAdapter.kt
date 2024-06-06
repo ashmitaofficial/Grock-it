@@ -5,7 +5,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.groceryapp.R
@@ -27,7 +26,7 @@ class CartAdapter(private val list: ArrayList<Product>, val plusClicked: (HashMa
         Picasso.get().load(list[position].image).into(holder.productImage)
         holder.productName.text= list[position].title
         holder.product_desc.text= list[position].description
-        holder.price.text= "\u20B9"+ list[position].price
+        holder.price.text= "\u20B9"+ list[position].total
         holder.quantity.text=list[position].quantity.toString()
 
         holder.plusbtn.setOnClickListener {
@@ -55,7 +54,7 @@ class CartAdapter(private val list: ArrayList<Product>, val plusClicked: (HashMa
         var productImage = view.findViewById<ImageView>(R.id.product_image)
         var productName = view.findViewById<TextView>(R.id.product_name)
         var product_desc = view.findViewById<TextView>(R.id.product_desc)
-        var price = view.findViewById<TextView>(R.id.price)
+        var price = view.findViewById<TextView>(R.id.totalAmout)
         var quantity = view.findViewById<TextView>(R.id.quantity)
         var plusbtn = view.findViewById<ImageButton>(R.id.plusbtn)
         var close_btn = view.findViewById<ImageButton>(R.id.close_btn)

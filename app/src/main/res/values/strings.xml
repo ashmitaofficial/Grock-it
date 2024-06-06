@@ -93,5 +93,12 @@
     <string name="order_fail_label">Oops! Order Failed</string>
     <string name="something_wrong_label">Something went wrong.</string>
     <string name="try_again_btn">Please Try Again</string>
+    <string name="review_btn">Submit Review</string>
+    <string name="rating_heading">Item\'s Rating</string>
+    <string name="review_label">Please share your opinion about the product</string>
+    <string name="proceed_btn">Proceed</string>
+    <string name="payBtn">Pay</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

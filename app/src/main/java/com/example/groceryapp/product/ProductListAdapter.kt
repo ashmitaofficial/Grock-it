@@ -37,7 +37,7 @@ class ProductListAdapter(private val list: ArrayList<Product>,context:FragmentAc
         var productImage = view.findViewById<ImageView>(R.id.product_img)
         var productName = view.findViewById<TextView>(R.id.product_name)
         var productDesc = view.findViewById<TextView>(R.id.product_desc)
-        var productPrice = view.findViewById<TextView>(R.id.price)
+        var productPrice = view.findViewById<TextView>(R.id.totalAmout)
         var cardview = view.findViewById<MaterialCardView>(R.id.cardView_category)
         var fav_btn=view.findViewById<ImageButton>(R.id.fav_btn)
 

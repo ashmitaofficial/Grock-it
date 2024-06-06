@@ -21,7 +21,6 @@ class FavoriteFragment : Fragment() {
     val favoriteViewModel: FavoriteViewModel by viewModels()
     lateinit var recyclerView: RecyclerView
     lateinit var progress_bar: ProgressBar
-    lateinit var constraintLayout: ConstraintLayout
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

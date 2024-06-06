@@ -67,7 +67,7 @@
                     layout="@layout/product_qty_container_layout" />
 
                 <TextView
-                    android:id="@+id/price"
+                    android:id="@+id/totalAmout"
                     style="@style/product_name_label_textStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

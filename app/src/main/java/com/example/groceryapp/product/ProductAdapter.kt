@@ -1,7 +1,6 @@
 package com.example.groceryapp.product
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
@@ -13,21 +12,14 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.view.marginBottom
 import androidx.fragment.app.FragmentActivity
-import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.example.groceryapp.R
 import com.example.groceryapp.dao.ApiInterface
 import com.example.groceryapp.dao.Response
 import com.example.groceryapp.dao.RetrofitBuilder
-import com.example.groceryapp.home.HomeActivity
-import com.example.groceryapp.home.cart.Cart
 import com.google.android.material.card.MaterialCardView
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import com.squareup.picasso.Picasso
-import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 
@@ -97,7 +89,7 @@ class ProductAdapter(private val list: MutableList<Product>, val context: Fragme
         var productImage = view.findViewById<ImageView>(R.id.product_img)
         var productName = view.findViewById<TextView>(R.id.product_name)
         var productDesc = view.findViewById<TextView>(R.id.product_desc)
-        var productPrice = view.findViewById<TextView>(R.id.price)
+        var productPrice = view.findViewById<TextView>(R.id.totalAmout)
         var cardview = view.findViewById<MaterialCardView>(R.id.cardView_category)
         var addButton = view.findViewById<ImageButton>(R.id.add_btn)
         var count_container = view.findViewById<LinearLayout>(R.id.count_container)

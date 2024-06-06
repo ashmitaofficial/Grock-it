@@ -18,6 +18,7 @@ import retrofit2.Callback
 
 class CartViewModel : ViewModel() {
     var livedata: MutableLiveData<Cart> = MutableLiveData<Cart>()
+    var total: Double? = 0.0
 
     fun getCart(context: Context,fragment: CartFragment) {
         RetrofitBuilder.build().create(ApiInterface::class.java).getCart()

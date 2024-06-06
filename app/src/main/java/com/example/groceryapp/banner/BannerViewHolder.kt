@@ -24,6 +24,4 @@ class BannerViewHolder(itemView: View): BaseViewHolder(itemView) {
         carouselView.setPageCount(data.size);
         carouselView.setImageListener(imageListener)
     }
-
-
 }

@@ -45,23 +45,23 @@
 
 
     <TextView
-        android:id="@+id/price"
+        android:id="@+id/totalAmout"
         style="@style/product_name_label_textStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         app:layout_constraintTop_toTopOf="parent "
-        app:layout_constraintEnd_toStartOf="@id/right_icon"
+        app:layout_constraintEnd_toStartOf="@id/payment_method_icon"
         tools:text="@string/product_price" />
 
     <ImageButton
-        android:id="@+id/right_icon"
+        android:id="@+id/payment_method_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
         android:background="@android:color/transparent"
         android:src="@drawable/right_arrow_icon"
-        app:layout_constraintBottom_toBottomOf="@id/price"
+        app:layout_constraintBottom_toBottomOf="@id/totalAmout"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <View

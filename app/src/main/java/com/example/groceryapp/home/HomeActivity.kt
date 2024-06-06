@@ -78,7 +78,6 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onNewIntent(intent: Intent?) {
         super.onNewIntent(intent)
-
         bottomNavigationView.selectedItemId = R.id.cart_txt
 
     }

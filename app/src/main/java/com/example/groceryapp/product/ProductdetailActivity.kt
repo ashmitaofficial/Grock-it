@@ -62,7 +62,7 @@ class ProductdetailActivity : AppCompatActivity() {
         product_label = findViewById(R.id.product_label)
         image = findViewById(R.id.product_img)
         product_desc = findViewById(R.id.product_desc)
-        price = findViewById(R.id.price)
+        price = findViewById(R.id.totalAmout)
         details = findViewById(R.id.details)
         nutrition_details = findViewById(R.id.nutrition_details)
         rating_txt = findViewById(R.id.rating_txt)

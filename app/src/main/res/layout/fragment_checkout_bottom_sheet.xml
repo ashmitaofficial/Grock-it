@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#F2F3F2"
     android:paddingHorizontal="8dp"
-    tools:context=".payment.CheckoutFragment">
+    tools:context=".payment.CheckOutBottomSheet">
 
     <TextView
         android:id="@+id/checkout_txt"
@@ -45,7 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="18dp"
-        android:text="@string/deleivery_label"
+        android:text="@string/payment_label"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/line" />
 
@@ -57,11 +57,11 @@
         android:padding="18dp"
         android:text="@string/select_method_label"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toStartOf="@id/right_icon"
+        app:layout_constraintEnd_toStartOf="@id/payment_method_icon"
         app:layout_constraintTop_toBottomOf="@id/line" />
 
     <ImageButton
-        android:id="@+id/right_icon"
+        android:id="@+id/payment_method_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
@@ -79,36 +79,36 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/delivery_txt" />
 
-    <TextView
-        android:id="@+id/payment_txt"
-        style="@style/label_grey_textStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="18dp"
-        android:text="@string/payment_label"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/delivery_txt" />
+<!--    <TextView-->
+<!--        android:id="@+id/payment_txt"-->
+<!--        style="@style/label_grey_textStyle"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:padding="18dp"-->
+<!--        android:text="@string/payment_label"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/delivery_txt" />-->
 
-    <ImageView
-        android:id="@+id/contry"
-        style="@style/label_grey_textStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="18dp"
-        android:src="@drawable/indiaflag"
-        android:text="@string/select_method_label"
-        app:layout_constraintEnd_toStartOf="@id/right_icon"
-        app:layout_constraintTop_toBottomOf="@id/line2" />
+<!--    <ImageView-->
+<!--        android:id="@+id/contry"-->
+<!--        style="@style/label_grey_textStyle"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:padding="18dp"-->
+<!--        android:src="@drawable/indiaflag"-->
+<!--        android:text="@string/select_method_label"-->
+<!--        app:layout_constraintEnd_toStartOf="@id/payment_method_icon"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/line2" />-->
 
-    <ImageButton
-        android:id="@+id/right_icon_payment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:padding="18dp"
-        android:src="@drawable/right_arrow_icon"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/line2" />
+<!--    <ImageButton-->
+<!--        android:id="@+id/right_icon_payment"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@android:color/transparent"-->
+<!--        android:padding="18dp"-->
+<!--        android:src="@drawable/right_arrow_icon"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/line2" />-->
 
     <View
         android:id="@+id/line3"
@@ -117,7 +117,7 @@
         android:background="#E2E2E2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/payment_txt" />
+        app:layout_constraintTop_toBottomOf="@id/delivery_txt" />
 
     <TextView
         android:id="@+id/promo_code_txt"
@@ -137,7 +137,7 @@
         android:padding="18dp"
         android:text="@string/discount_label"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toStartOf="@id/right_icon"
+        app:layout_constraintEnd_toStartOf="@id/payment_method_icon"
         app:layout_constraintTop_toBottomOf="@id/line3" />
 
     <ImageButton
@@ -170,14 +170,14 @@
         app:layout_constraintTop_toBottomOf="@id/line4" />
 
     <TextView
-        android:id="@+id/price"
+        android:id="@+id/totalAmout"
         style="@style/label_grey_textStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="18dp"
         android:text="@string/product_price"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toStartOf="@id/right_icon"
+        app:layout_constraintEnd_toStartOf="@id/payment_method_icon"
         app:layout_constraintTop_toBottomOf="@id/line4" />
 
     <ImageButton
@@ -212,7 +212,7 @@
         app:layout_constraintTop_toBottomOf="@id/line5" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/place_order_btn"
+        android:id="@+id/placeOrder_btn"
         style="@style/button_style_app"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

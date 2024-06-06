@@ -37,11 +37,15 @@ class CartFragment : Fragment() {
 
         checkOut_btn.setOnClickListener{
             val bottomSheet= CheckOutBottomSheet()
+            val bundle = Bundle()
+            bundle.putString("key", cartViewModel.total.toString())
+            bottomSheet.arguments = bundle
             bottomSheet.show(requireActivity().supportFragmentManager, "ModalBottomSheet")
         }
 
 
         cartViewModel.livedata.observe(viewLifecycleOwner){
+            cartViewModel.total= it.total
             if(it.productList.size<=0){
                 checkOut_btn.visibility=View.GONE
             }else{

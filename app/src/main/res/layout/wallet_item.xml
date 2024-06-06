@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:background="@android:color/white"
+    android:padding="15dp"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/wallet_logo"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/sbi_logo" />
+
+    <TextView
+        android:id="@+id/wallet_name"
+        style="@style/label_grey_textStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity=""
+        android:layout_weight="1"
+        android:padding="15dp"
+        android:text="Mobikwik| ZIP (Paylater)" />
+
+<!--    <RadioButton-->
+<!--        android:id="@+id/radioBtn"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content" />-->
+
+</LinearLayout>

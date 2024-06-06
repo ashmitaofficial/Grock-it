@@ -84,4 +84,7 @@ interface ApiInterface {
     @GET("filters")
     fun getFilterItems(): Call<Response>
 
+    @GET("available-methods")
+    fun getPaymentMethod(): Call<Response>
+
 }

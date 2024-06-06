@@ -44,7 +44,7 @@ class FavoriteAdapter(private val list: ArrayList<Product>,val context: Fragment
         var productImage = view.findViewById<ImageView>(R.id.product_image)
         var productName = view.findViewById<TextView>(R.id.product_name)
         var product_desc = view.findViewById<TextView>(R.id.product_desc)
-        var price = view.findViewById<TextView>(R.id.price)
-        var right_icon = view.findViewById<ImageButton>(R.id.right_icon)
+        var price = view.findViewById<TextView>(R.id.totalAmout)
+        var right_icon = view.findViewById<ImageButton>(R.id.payment_method_icon)
     }
 }
