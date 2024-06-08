@@ -2,32 +2,28 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal"
-    android:padding="15dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="5dp"
     android:background="@android:color/white"
     tools:context=".checkout.net_banking.NetBankingFragment">
-
-    <ImageView
-        android:id="@+id/bank_logo"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/sbi_logo" />
 
     <TextView
         android:id="@+id/bank_name"
         style="@style/label_grey_textStyle"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity=""
         android:layout_weight="1"
         android:padding="15dp"
-        android:text="State Bank of India" />
+        android:text="@string/BankName_label" />
 
-<!--    <RadioButton-->
-<!--        android:id="@+id/radioBtn"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content" />-->
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E2E2E2" />
+
+
 
 </LinearLayout>

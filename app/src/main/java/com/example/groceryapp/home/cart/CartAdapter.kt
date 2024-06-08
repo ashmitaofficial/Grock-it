@@ -29,6 +29,7 @@ class CartAdapter(private val list: ArrayList<Product>, val plusClicked: (HashMa
         holder.price.text= "\u20B9"+ list[position].total
         holder.quantity.text=list[position].quantity.toString()
 
+
         holder.plusbtn.setOnClickListener {
             val map = HashMap<String, Any>()
             map.put("id", list[position].id!!)

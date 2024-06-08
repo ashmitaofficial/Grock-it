@@ -86,7 +86,7 @@
             />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/submit_btn"
+            android:id="@+id/payBtn"
             style="@style/button_style_app"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

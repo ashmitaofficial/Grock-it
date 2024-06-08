@@ -11,7 +11,8 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.RecyclerView
 import com.example.groceryapp.R
-import com.example.groceryapp.payment.CheckOutBottomSheet
+import com.example.groceryapp.base.utils.AppConstants
+import com.example.groceryapp.checkout.CheckOutBottomSheet
 
 class CartFragment : Fragment() {
 
@@ -38,7 +39,10 @@ class CartFragment : Fragment() {
         checkOut_btn.setOnClickListener{
             val bottomSheet= CheckOutBottomSheet()
             val bundle = Bundle()
-            bundle.putString("key", cartViewModel.total.toString())
+            bundle.putString(AppConstants.TOTAL, cartViewModel.total.toString())
+            bundle.putString(AppConstants.CGST, cartViewModel.cgst.toString())
+            bundle.putString(AppConstants.SGST, cartViewModel.sgst.toString())
+
             bottomSheet.arguments = bundle
             bottomSheet.show(requireActivity().supportFragmentManager, "ModalBottomSheet")
         }
@@ -46,6 +50,8 @@ class CartFragment : Fragment() {
 
         cartViewModel.livedata.observe(viewLifecycleOwner){
             cartViewModel.total= it.total
+            cartViewModel.cgst=it.cgst
+            cartViewModel.sgst=it.sgst
             if(it.productList.size<=0){
                 checkOut_btn.visibility=View.GONE
             }else{

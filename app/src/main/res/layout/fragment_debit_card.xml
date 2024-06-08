@@ -4,122 +4,156 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
     android:background="@android:color/white"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:layout_marginTop="25dp"
+    android:layout_marginHorizontal="6dp"
     tools:context=".checkout.debit_card.DebitCardFragment">
 
-<!--    <TextView-->
-<!--        android:id="@+id/totalAmount_txt"-->
-<!--        style="@style/label_grey_textStyle"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:padding="20dp"-->
-<!--        android:text="Amount Payable"-->
-<!--        android:textColor="@color/app_color"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
+    <!--    <TextView-->
+    <!--        android:id="@+id/totalAmount_txt"-->
+    <!--        style="@style/label_grey_textStyle"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:padding="20dp"-->
+    <!--        android:text="Amount Payable"-->
+    <!--        android:textColor="@color/app_color"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
 
-<!--    <TextView-->
-<!--        android:id="@+id/amount"-->
-<!--        style="@style/label_grey_textStyle"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:padding="20dp"-->
-<!--        android:text="120"-->
-<!--        android:textColor="@color/app_color"-->
-<!--        app:layout_constraintStart_toEndOf="@id/totalAmount_txt"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
+    <!--    <TextView-->
+    <!--        android:id="@+id/amount"-->
+    <!--        style="@style/label_grey_textStyle"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:padding="20dp"-->
+    <!--        android:text="120"-->
+    <!--        android:textColor="@color/app_color"-->
+    <!--        app:layout_constraintStart_toEndOf="@id/totalAmount_txt"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
 
     <TextView
         android:id="@+id/cardNum_txt"
-        style="@style/medium_heading_textStyle"
+        style="@style/category_label_textStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:text="Card Number"
+        android:text="@string/cardNum_label"
+        android:textColor="@android:color/black"
         app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/cardNum_field"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="10dp"
-        android:paddingStart="1.5dp"
-        app:layout_constraintTop_toBottomOf="@id/cardNum_txt" />
+        app:layout_constraintTop_toBottomOf="@id/cardNum_txt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/cardNum_editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Card number"
+            android:inputType="number"
+            android:textSize="15sp"
+           />
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <TextView
         android:id="@+id/validThrough_txt"
-        style="@style/medium_heading_textStyle"
+        style="@style/category_label_textStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:padding="10dp"
-        android:text="Valid through"
+        android:text="@string/validity_label"
+        app:layout_constraintTop_toBottomOf="@id/cardNum_field"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardNum_field" />
+        android:textColor="@android:color/black" />
 
-    <Spinner
-        android:id="@+id/month_spinner"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"
-        android:padding="10dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/expiry_field"
+        android:layout_width="160dp"
+        app:layout_constraintTop_toBottomOf="@id/validThrough_txt"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/validThrough_txt" />
+        android:layout_height="wrap_content">
 
-    <Spinner
-        android:id="@+id/year_spinner"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"
-        android:padding="10dp"
-        app:layout_constraintStart_toEndOf="@id/month_spinner"
-        app:layout_constraintTop_toBottomOf="@id/validThrough_txt" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/expiry_editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:maxLength="5"
+            android:textSize="15sp"
+            android:hint="Expiry(MM/YY)" />
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <TextView
         android:id="@+id/cvv_txt"
-        style="@style/medium_heading_textStyle"
+        style="@style/category_label_textStyle"
+        android:textColor="@android:color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
+        android:layout_marginStart="85dp"
         android:layout_marginTop="15dp"
         android:padding="10dp"
-        android:text="CVV"
+        android:text="@string/cvv_label"
         app:layout_constraintStart_toEndOf="@id/validThrough_txt"
         app:layout_constraintTop_toBottomOf="@id/cardNum_field" />
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/cvv_field"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginStart="50dp"
-        android:inputType="textPassword"
-        android:paddingStart="1.5dp"
-        app:layout_constraintStart_toEndOf="@id/year_spinner"
-        app:layout_constraintTop_toBottomOf="@id/validThrough_txt" />
+        android:layout_width="100dp"
+        app:layout_constraintTop_toBottomOf="@id/cvv_txt"
+       app:layout_constraintStart_toEndOf="@id/expiry_field"
+        android:layout_marginStart="70dp"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/cvv_editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="CVV"
+            android:inputType="number"
+            android:maxLength="3"
+            android:textSize="15sp"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/cardHolder_name_txt"
-        style="@style/medium_heading_textStyle"
+        style="@style/category_label_textStyle"
+        android:textColor="@android:color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:padding="10dp"
-        android:text="Card holder name"
+        android:text="@string/cardHolder_label"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cvv_field" />
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/cardholder_name_field"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="10dp"
-        android:paddingStart="1.5dp"
-        app:layout_constraintTop_toBottomOf="@id/cardHolder_name_txt" />
+        app:layout_constraintTop_toBottomOf="@id/cardHolder_name_txt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/cardholderName_editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:hint="Full Name" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
 
     <TextView
         style="@style/label_grey_textStyle"
@@ -128,7 +162,7 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="20dp"
         android:padding="10dp"
-        android:text="This card will be securely saved for a faster payment experience .CVV number will not be saved."
+        android:text="@string/guidelines_debitCard"
         android:textColor="@color/app_color"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -137,7 +171,7 @@
 
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/submit_btn"
+        android:id="@+id/payBtn"
         style="@style/button_style_app"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -145,10 +179,9 @@
         android:background="@drawable/rounded_button_background"
         android:padding="18dp"
         android:text="@string/payBtn"
+        android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginHorizontal="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:textAllCaps="false" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

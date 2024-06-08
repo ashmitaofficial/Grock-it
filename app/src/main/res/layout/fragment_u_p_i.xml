@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:text="Enter UPI ID"
+        android:text="@string/UPI_heading"
         android:layout_marginTop="50dp"
         android:textColor="@color/app_color"
          />
@@ -24,10 +24,11 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="10dp"
         android:paddingStart="1.5dp"
+        android:hint=""
          />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/submit_btn"
+        android:id="@+id/payBtn"
         style="@style/button_style_app"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

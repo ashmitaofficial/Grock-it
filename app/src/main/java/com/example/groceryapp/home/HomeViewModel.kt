@@ -14,6 +14,7 @@ import com.example.groceryapp.dao.RetrofitBuilder
 import com.example.groceryapp.banner.Banner
 import com.example.groceryapp.category.Category
 import com.example.groceryapp.base.DynamicItem
+import com.example.groceryapp.base.utils.AppConstants
 import com.example.groceryapp.base.utils.SharedPreferenceClass
 import com.example.groceryapp.home.cart.Cart
 import com.example.groceryapp.home.shop.ShopFragment
@@ -28,25 +29,28 @@ import retrofit2.Callback
 
 class HomeViewModel : ViewModel() {
 
-    var liveData: MutableLiveData<ArrayList<DynamicItem>> = MutableLiveData<ArrayList<DynamicItem>>()
+    var liveData: MutableLiveData<ArrayList<DynamicItem>> =
+        MutableLiveData<ArrayList<DynamicItem>>()
     var shopList = ArrayList<DynamicItem>()
-    fun getHomeData(context: Context,fragment: ShopFragment) {
-        RetrofitBuilder.build().create(ApiInterface::class.java).getHomeData(SharedPreferenceClass.getEmail(context).toString())
+    fun getHomeData(context: Context, fragment: ShopFragment) {
+        RetrofitBuilder.build().create(ApiInterface::class.java)
+            .getHomeData(SharedPreferenceClass.getEmail(context).toString())
             .enqueue(object : Callback<Response> {
                 override fun onResponse(
                     call: Call<Response>, response: retrofit2.Response<Response>
                 ) {
                     if (response.body()?.status == 200) {
-                       shopList= createHomeList(response.body()!!)
+                        shopList = createHomeList(response.body()!!)
                         liveData.postValue(shopList)
-                       fragment.progress_bar.visibility= View.GONE
-                       fragment.recyclerView.visibility=View.VISIBLE
+                        fragment.progress_bar.visibility = View.GONE
+                        fragment.recyclerView.visibility = View.VISIBLE
 
                     } else {
                         Toast.makeText(context, response.body()?.error?.msg, Toast.LENGTH_SHORT)
                             .show()
                     }
                 }
+
                 override fun onFailure(call: Call<Response>, t: Throwable) {
                     Toast.makeText(context, "Try again", Toast.LENGTH_SHORT).show()
                 }
@@ -61,49 +65,65 @@ class HomeViewModel : ViewModel() {
 
         dynamicItemList.forEach { dyItem ->
             when (dyItem.id) {
-                "TYPE_BANNER" -> {
+                AppConstants.BANNER -> {
                     val typeBanner = object : TypeToken<ArrayList<Banner?>?>() {}.type
                     val bannerList: ArrayList<Banner> =
-                        Gson().fromJson(JSONArray(dyItem.data as ArrayList<*>).toString(), typeBanner)
+                        Gson().fromJson(
+                            JSONArray(dyItem.data as ArrayList<*>).toString(),
+                            typeBanner
+                        )
                     homeList.add(DynamicItem(dyItem.id, bannerList))
                 }
 
-                "TYPE_LABEL" -> {
+                AppConstants.LABEL -> {
                     homeList.add(DynamicItem(dyItem.id, dyItem.data))
                 }
 
-                "TYPE_OFFER" -> {
+                AppConstants.OFFER -> {
                     val typeOffer = object : TypeToken<ArrayList<Product?>?>() {}.type
                     val offerList: ArrayList<Product> =
-                        Gson().fromJson(JSONArray(dyItem.data as ArrayList<*>).toString(), typeOffer)
+                        Gson().fromJson(
+                            JSONArray(dyItem.data as ArrayList<*>).toString(),
+                            typeOffer
+                        )
                     homeList.add(DynamicItem(dyItem.id, offerList))
                 }
 
-                "TYPE_BEST_SELLER" -> {
+                AppConstants.BEST_SELLER -> {
                     val typeOffer = object : TypeToken<ArrayList<Product?>?>() {}.type
                     val offerList: ArrayList<Product> =
-                        Gson().fromJson(JSONArray(dyItem.data as ArrayList<*>).toString(), typeOffer)
+                        Gson().fromJson(
+                            JSONArray(dyItem.data as ArrayList<*>).toString(),
+                            typeOffer
+                        )
                     homeList.add(DynamicItem(dyItem.id, offerList))
                 }
 
-                "TYPE_CATEGORIES" -> {
+                AppConstants.CATEGORIES -> {
                     val typeCategory = object : TypeToken<ArrayList<Category?>?>() {}.type
                     val categoryList: ArrayList<Category> =
-                        Gson().fromJson(JSONArray(dyItem.data as ArrayList<*>).toString(), typeCategory)
+                        Gson().fromJson(
+                            JSONArray(dyItem.data as ArrayList<*>).toString(),
+                            typeCategory
+                        )
                     homeList.add(DynamicItem(dyItem.id, categoryList))
                 }
 
-                "TYPE_RECOMMEND" -> {
+                AppConstants.RECOMMEND -> {
                     val typeOffer = object : TypeToken<ArrayList<Product?>?>() {}.type
                     val offerList: ArrayList<Product> =
-                        Gson().fromJson(JSONArray(dyItem.data as ArrayList<*>).toString(), typeOffer)
+                        Gson().fromJson(
+                            JSONArray(dyItem.data as ArrayList<*>).toString(),
+                            typeOffer
+                        )
                     homeList.add(DynamicItem(dyItem.id, offerList))
                 }
 
-                "TYPE_SEARCH" -> {
+                AppConstants.SEARCH -> {
                     homeList.add(DynamicItem(dyItem.id, dyItem.data))
                 }
-                "TYPE_LOCATION" ->{
+
+                AppConstants.LOCATION -> {
                     homeList.add(DynamicItem(dyItem.id, dyItem.data))
                 }
 

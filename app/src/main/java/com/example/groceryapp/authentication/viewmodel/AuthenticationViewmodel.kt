@@ -44,7 +44,7 @@ class AuthenticationViewmodel : ViewModel() {
                     call: Call<Response>, response: retrofit2.Response<Response>
                 ) {
                     if (response.body()?.status == 200) {
-                        Toast.makeText(context, "Logged in Succesfully", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Logged in Successfully", Toast.LENGTH_SHORT).show()
                         val typeUser = object : TypeToken<UserModel?>() {}.type
                         val user: UserModel = Gson().fromJson(
                             JSONObject(response.body()?.data as LinkedTreeMap<*, *>).toString(), typeUser)

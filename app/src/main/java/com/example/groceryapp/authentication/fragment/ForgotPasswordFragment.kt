@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import com.example.groceryapp.R
 import com.example.groceryapp.authentication.viewmodel.AuthenticationViewmodel
+import com.example.groceryapp.base.utils.AppConstants
 import com.example.groceryapp.base.utils.Validation.isValidEmail
 import me.ibrahimsn.lib.CirclesLoadingView
 
@@ -89,8 +90,8 @@ class ForgotPasswordFragment : Fragment() {
             }
             loader.visibility = View.VISIBLE
             val map = HashMap<String, String>()
-            map.put("email", email.text.toString())
-            map.put("newPassword", confirm_password.text.toString())
+            map.put(AppConstants.EMAIL, email.text.toString())
+            map.put(AppConstants.PASSWORD, confirm_password.text.toString())
             authenticationViewmodel.forgot(requireActivity(), map, this)
 
         }

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingHorizontal="18dp"
+    android:background="@android:color/white"
+    tools:context=".checkout.ErrorFragment">
+
+<!--    <ImageButton-->
+<!--        android:id="@+id/close_btn"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="5dp"-->
+<!--        android:background="@android:color/transparent"-->
+<!--        android:padding="18dp"-->
+<!--        android:src="@drawable/close_icon"-->
+<!--        app:tint="@android:color/black" />-->
+
+<!--    <ImageView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:src="@drawable/order_fail_image" />-->
+
+<!--    <TextView-->
+<!--        style="@style/medium_heading_textStyle"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:text="@string/order_fail_label"-->
+<!--        android:textSize="28sp" />-->
+
+<!--    <TextView-->
+<!--        style="@style/label_grey_textStyle"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:padding="10dp"-->
+<!--        android:text="@string/something_wrong_label" />-->
+
+<!--    <androidx.appcompat.widget.AppCompatButton-->
+<!--        android:id="@+id/tryAgain_btn"-->
+<!--        style="@style/button_style_app"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="60dp"-->
+<!--        android:background="@drawable/rounded_button_background"-->
+<!--        android:text="@string/try_again_btn"-->
+<!--        android:textAllCaps="false" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/back_home_txt"-->
+<!--        style="@style/body_textStyle"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="18dp"-->
+<!--        android:gravity="center"-->
+<!--        android:text="@string/back_home_txt"-->
+<!--        android:textSize="18sp" />-->
+
+</LinearLayout>

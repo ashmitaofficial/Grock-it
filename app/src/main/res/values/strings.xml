@@ -98,6 +98,15 @@
     <string name="review_label">Please share your opinion about the product</string>
     <string name="proceed_btn">Proceed</string>
     <string name="payBtn">Pay</string>
+    <string name="cardNum_label">Card Number</string>
+    <string name="validity_label">Valid through</string>
+    <string name="cvv_label">CVV</string>
+    <string name="cardHolder_label">Card holder name</string>
+    <string name="BankName_label">State Bank of India</string>
+    <string name="payment_type">Debit Card/ ATM</string>
+    <string name="UPI_heading">Enter UPI ID</string>
+    <string name="guidelines_debitCard">This card will be securely saved for a faster payment experience .CVV number will not be saved.</string>
+    <string name="wallet_type">Mobikwik| ZIP (Paylater)</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
