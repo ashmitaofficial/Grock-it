@@ -21,6 +21,7 @@ class CheckOutViewModel : ViewModel() {
         MutableLiveData<ArrayList<PaymentMethodModel>>()
 
     var orderLiveData: MutableLiveData<String> = MutableLiveData<String>()
+    var orderFailLiveData: MutableLiveData<String> = MutableLiveData<String>()
 
     fun getPaymentMethod(context: Context) {
         RetrofitBuilder.build().create(ApiInterface::class.java).getPaymentMethod()
@@ -48,7 +49,10 @@ class CheckOutViewModel : ViewModel() {
     }
 
     fun createOrder(context: Context, map: HashMap<String, Any?>) {
-        PaymentRetrofit.build().create(ApiInterface::class.java).createOrder(Credentials.basic("rzp_test_lXUzSq2Q1wv9tA", "zEkzokeSVxhe2zupKHqBAvLz"), map)
+        PaymentRetrofit.build().create(ApiInterface::class.java).createOrder(
+            Credentials.basic("rzp_test_lXUzSq2Q1wv9tA", "zEkzokeSVxhe2zupKHqBAvLz"),
+            map
+        )
             .enqueue(object : Callback<RazorpayResponse> {
                 override fun onResponse(
                     call: Call<RazorpayResponse>,
@@ -58,6 +62,7 @@ class CheckOutViewModel : ViewModel() {
                         val res = response.body()?.id.toString()
                         orderLiveData.postValue(res)
                     }
+
                 }
 
                 override fun onFailure(call: Call<RazorpayResponse>, t: Throwable) {

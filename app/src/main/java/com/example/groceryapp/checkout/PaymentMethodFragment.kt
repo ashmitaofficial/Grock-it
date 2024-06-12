@@ -26,9 +26,6 @@ class PaymentMethodFragment : Fragment() {
             recyclerView.adapter= PaymentMethodAdapter(it,this)
         }
 
-
-
-
         return view.rootView
     }
 

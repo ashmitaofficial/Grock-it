@@ -31,25 +31,24 @@ class LocationFragment : Fragment() {
     private lateinit var geocoder: Geocoder
     private lateinit var zone_txt: EditText
     private lateinit var area_txt: EditText
-   private lateinit var mLocationRequest: LocationRequest
-   private lateinit var mFusedLocationClient:FusedLocationProviderClient
+    private lateinit var mLocationRequest: LocationRequest
+    private lateinit var mFusedLocationClient: FusedLocationProviderClient
     private lateinit var mLocationCallback: LocationCallback
     private lateinit var backBtn: ImageView
-    public lateinit var loader: CirclesLoadingView
+    lateinit var loader: CirclesLoadingView
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
         val view = inflater.inflate(R.layout.fragment_location, container, false)
         submit_btn = view.findViewById(R.id.payBtn)
         zone_txt = view.findViewById(R.id.zone_field)
         area_txt = view.findViewById(R.id.area_field)
-        backBtn=view.findViewById(R.id.backBtn)
-        loader=view.findViewById(R.id.loader)
-
+        backBtn = view.findViewById(R.id.backBtn)
+        loader = view.findViewById(R.id.loader)
 
         getLastLocation()
 
@@ -62,12 +61,12 @@ class LocationFragment : Fragment() {
             map["password"] = authenticationViewmodel.password ?: ""
             map["address"] = authenticationViewmodel.address ?: ""
 
-            loader.visibility= View.VISIBLE
-            authenticationViewmodel.signup(requireActivity(), map,this)
+            loader.visibility = View.VISIBLE
+            authenticationViewmodel.signup(requireActivity(), map, this)
 
         }
 
-        backBtn.setOnClickListener{
+        backBtn.setOnClickListener {
             requireActivity().onBackPressed()
         }
         return view.rootView
@@ -86,7 +85,7 @@ class LocationFragment : Fragment() {
                 .build()
 
             // callback for location
-             mLocationCallback= object : LocationCallback() {
+            mLocationCallback = object : LocationCallback() {
                 override fun onLocationResult(locationResult: LocationResult) {
                     for (location in locationResult.locations) {
                         if (location != null) {
@@ -104,7 +103,7 @@ class LocationFragment : Fragment() {
                 }
             }
             // call location request
-           mFusedLocationClient= LocationServices.getFusedLocationProviderClient(requireContext())
+            mFusedLocationClient = LocationServices.getFusedLocationProviderClient(requireContext())
             mFusedLocationClient.requestLocationUpdates(mLocationRequest, mLocationCallback, null)
 
         }
@@ -125,5 +124,4 @@ class LocationFragment : Fragment() {
         mFusedLocationClient.removeLocationUpdates(mLocationCallback)
 
     }
-
 }

@@ -16,6 +16,7 @@ import androidx.fragment.app.activityViewModels
 import com.example.groceryapp.R
 import com.example.groceryapp.base.utils.AppConstants
 import com.example.groceryapp.base.utils.SharedPreferenceClass
+import com.example.groceryapp.base.utils.Validation.isValidEmail
 import com.example.groceryapp.checkout.CheckOutViewModel
 import com.example.groceryapp.checkout.PaymentWebViewFragment
 import org.json.JSONObject
@@ -42,10 +43,16 @@ class DebitCardFragment : Fragment() {
         payBtn = view.findViewById(R.id.payBtn)
 
         payBtn.setOnClickListener {
+
+           var email= SharedPreferenceClass.getEmail(requireContext())
+            if(email?.isValidEmail()==false){
+             email= "test@gmail.com"
+            }
+
             val payload = JSONObject()
             payload.put("amount", checkOutViewModel.cartTotal)
             payload.put("currency", "INR")
-            payload.put("email", SharedPreferenceClass.getEmail(requireContext()))
+            payload.put("email", email)
             payload.put("card[number]", cardNum_field.text)
             payload.put("card[expiry_month]", expiry_field.text.toString().substring(0, 2).toInt())
             payload.put("card[expiry_year]", expiry_field.text.toString().substring(3).toInt())

@@ -32,6 +32,7 @@ class HomeActivity : AppCompatActivity() {
         bottomNavigationView = findViewById(R.id.bottom_nav)
 
 
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main))
         { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -62,8 +63,7 @@ class HomeActivity : AppCompatActivity() {
                         .replace(R.id.container, CartFragment::class.java, null)
                         .commit()
                     return true
-                }
-                else{
+                } else {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.container, AccountFragment::class.java, null)
                         .commit()
@@ -78,7 +78,10 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onNewIntent(intent: Intent?) {
         super.onNewIntent(intent)
-        bottomNavigationView.selectedItemId = R.id.cart_txt
+        if (intent?.getStringExtra("screen").equals("payment")) {
+            bottomNavigationView.selectedItemId = R.id.shop_txt
+        } else
+            bottomNavigationView.selectedItemId = R.id.cart_txt
 
     }
 }

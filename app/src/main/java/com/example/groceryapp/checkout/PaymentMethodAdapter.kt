@@ -12,10 +12,8 @@ import com.example.groceryapp.checkout.net_banking.NetBankingFragment
 import com.example.groceryapp.checkout.upi.UPIFragment
 import com.example.groceryapp.checkout.wallet.WalletFragment
 
-class PaymentMethodAdapter(
-    private val list: ArrayList<PaymentMethodModel>,
-    val context: PaymentMethodFragment
-) : RecyclerView.Adapter<PaymentMethodAdapter.MyViewholder>() {
+class PaymentMethodAdapter(private val list: ArrayList<PaymentMethodModel>, val context: PaymentMethodFragment)
+    : RecyclerView.Adapter<PaymentMethodAdapter.MyViewholder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewholder {
         val view = LayoutInflater.from(parent.context)
@@ -61,8 +59,6 @@ class PaymentMethodAdapter(
                 }
             }
         }
-
-
     }
 
     class MyViewholder(view: View) : RecyclerView.ViewHolder(view) {

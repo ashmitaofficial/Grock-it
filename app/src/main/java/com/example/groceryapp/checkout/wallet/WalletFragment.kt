@@ -20,7 +20,6 @@ import org.json.JSONObject
 
 class WalletFragment : Fragment() {
 
-
     lateinit var recyclerView: RecyclerView
     val checkOutViewModel: CheckOutViewModel by activityViewModels()
     lateinit var razorpay: Razorpay

@@ -19,7 +19,10 @@ class CheckoutActivity : AppCompatActivity() {
         setContentView(R.layout.activity_checkout)
 
         val cartTotal= intent.getStringExtra("total")
-        checkOutViewModel.cartTotal= cartTotal?.toDouble()?.toInt()
+        cartTotal?.let {
+            checkOutViewModel.cartTotal= it.toDouble().toInt()*100
+        }
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
